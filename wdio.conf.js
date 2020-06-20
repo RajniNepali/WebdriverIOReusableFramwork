@@ -1,3 +1,4 @@
+let WdioTestRailReporter = require('./packages/wdio-testrail-reporter/lib/wdio-testrail-reporter');
 exports.config = {
     //
     // ====================
@@ -124,8 +125,22 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec'],
+    //Ensure that your testrail installation API is enabled and generate your API keys. See http://docs.gurock.com/
+    //Mark your mocha test names with ID of Testrail test cases. Ensure that your case ids are well distinct from test descriptions.
+    //it("C123 C124 Authenticate with invalid user", . . .
+    // it("Authenticate a valid user C321", . . .
+    // Only passed or failed tests will be published. Skipped or pending tests will not be published resulting in a "Pending" status in testrail test run.
 
+//Add reporter to wdio.conf.js:
+    reporters: ['spec', WdioTestRailReporter],
+    testRailsOptions: {
+      domain: "yourdomain.testrail.net",
+      username: "username",
+      password: "password",
+      projectId: 1,
+      suiteId: 1,
+      runName: "My test run"
+    },
 
     
     //
@@ -265,4 +280,6 @@ exports.config = {
     */
     //onReload: function(oldSessionId, newSessionId) {
     //}
+
+    
 }

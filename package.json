@@ -39,6 +39,7 @@
     "mocha-testdata": "^1.2.0",
     "runner": "^3.0.0",
     "test": "^0.6.0",
+    "wdio-testrail-reporter": "^1.1.5",
     "xlsx": "^0.16.2"
   }
 }

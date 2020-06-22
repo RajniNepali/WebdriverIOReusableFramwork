@@ -50,7 +50,7 @@ $ npx wdio wdio.conf.js
 Command :-npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
 Create - babel.config.js file in project 
 Add following code into babel.config.js file :-
----------------------------------------
+----------------------------------------
 module.exports = {
     presets: [
         ['@babel/preset-env', {

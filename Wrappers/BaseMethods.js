@@ -1,7 +1,14 @@
 const sync = require('@wdio/sync').default
+var sheetReader = require('./main.js').default
 const ELEMENT_WAIT_PERIOD_SECONDS = 60;
 class BaseMethodsPage 
 {
+
+    googleSheetReader(ColoumnHeader)
+    {
+        var dataArray = {};
+        
+    }
     //This method is ued to click On element for which the locator is passed.
     clickElement(locator)
     {   try{

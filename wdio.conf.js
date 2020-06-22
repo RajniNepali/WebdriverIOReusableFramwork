@@ -1,4 +1,4 @@
-let WdioTestRailReporter = require('./packages/wdio-testrail-reporter/lib/wdio-testrail-reporter');
+let WdioTestRailReporter = require('./node_modules/wdio-testrail-reporter/lib/wdio-testrail-reporter');
 exports.config = {
     //
     // ====================
@@ -133,14 +133,16 @@ exports.config = {
 
 //Add reporter to wdio.conf.js:
     reporters: ['spec', WdioTestRailReporter],
+
     testRailsOptions: {
-      domain: "yourdomain.testrail.net",
-      username: "username",
-      password: "password",
+      domain: "webdriverio.testrail.io",
+      username: "rajni.nepali@nitorinfotech.com",
+      password: "0xUc0GzpV1YLyGxjx/dQ-eQNnZ8r2wsV6NvVEbC4l",
       projectId: 1,
       suiteId: 1,
-      runName: "My test run"
+      runName: "TestRun1"
     },
+
 
     
     //

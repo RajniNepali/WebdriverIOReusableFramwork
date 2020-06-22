@@ -79,3 +79,33 @@ Install chail - chai is a Assertion library
 Install and setup ChromeDeiver :
 - npm install wdio-chromedriver-service --save-dev
 - npm install chromedriver --save-dev
+
+### allure-reports: It will execute generate Reports & Open reports.
+
+Below dependencies added for reports ;
+1."allure-commandline": "^1.4.22-1"
+2."wdio-video-reporter": "^3.0.0",
+3."@wdio/allure-reporter": "^6.1.14",
+4."@wdio/firefox-profile-service": "^6.1.14",
+5."@wdio/junit-reporter": "^6.1.14",
+
+
+### MultiBrowser Execution:
+
+Execution can be done on Multiple browsers in parallel.
+Following Browsers are added for multibrowser testing in the suite.
+1. Chrome Browsers
+2. Internet Browsers
+3. Mozilla firefox Browsers
+
+We can also define maximum number of Instances of browser using variable maxInstances in wdio.conf.js file
+
+Below dependencies added for MultiBrowser execution ;
+
+@babel/register": "^7.10.1",
+
+1."@wdio/firefox-profile-service": "^6.1.14",
+2."@wdio/selenium-standalone-service": "^6.1.14",
+3."chromedriver": "^83.0.0",
+4."selenium-standalone": "^6.17.0",
+5."wdio-chromedriver-service": "^6.0.3",

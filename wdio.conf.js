@@ -1,3 +1,5 @@
+	//import reporter from 'wdio-allure-reporter'	
+const video = require('wdio-video-reporter');  // added for allure video reports
 exports.config = {
     //
     // ====================
@@ -8,6 +10,7 @@ exports.config = {
     // on a remote machine).
     runner: 'local',
     //
+    path: '/',
     // ==================
     // Specify Test Files
     // ==================
@@ -45,19 +48,23 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
-    
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        maxInstances: 5,
-        //
-        browserName: 'chrome',
-        // If outputDir is provided WebdriverIO can capture driver session logs
-        // it is possible to configure which logTypes to include/exclude.
-        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-        // excludeDriverLogs: ['bugreport', 'server'],
-    }],
+    capabilities: [	
+        // Chrome Browser	
+       {	
+        maxInstances: 1,	
+        browserName: 'chrome',	
+       },	
+       //firefox Browser	
+           {	
+           maxInstances: 1,	
+          browserName: 'firefox',	
+          },	
+       // internet explorer Browser	
+          {	
+           maxInstances: 1,	
+          browserName: 'internet explorer',	
+          },	
+                ], 
     //
     // ===================
     // Test Configurations
@@ -105,7 +112,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: ['selenium-standalone'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -124,8 +131,31 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec'],
-
+    logLevel: 'info', // trace | debug | info | warn | error | silent	
+    outputDir: './_Reports_',  // output directory for keeping reports	
+    reporters: [	
+        // Below commented code can be used to attach videos to the allure reports	
+        // Note: Adding videos to allure reports may slower the speed of execution	
+        // [video, {	
+        //     saveAllVideos: false,       // If true, also saves videos for successful test cases	
+        //     videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]	
+        //     videoRenderTimeout: 5, 	
+        // }],	
+        // Allure reports	
+        ['allure', {	
+           outputDir: './_Reports_/allure-results',	
+          disableWebdriverStepsReporting: true,	
+          disableWebdriverScreenshotsReporting: true,	
+        }],	
+        //json reports	
+        ['json', {	
+           outputDir: './_Reports_/json-results',	
+         }],	
+        //junit reports	
+         ['junit', {	
+          outputDir: './_Reports_/junit-results',	
+        }],	
+      ],
 
     
     //
@@ -212,8 +242,12 @@ exports.config = {
     /**
      * Function to be executed after a test (in Mocha/Jasmine).
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: function(test, context, { error, result, duration, passed, retries }) {	
+        if (error !== undefined) {	
+            browser.takeScreenshot();	
+          }	
+    	
+    },
 
 
     /**

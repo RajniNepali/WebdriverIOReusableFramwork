@@ -1,7 +1,7 @@
 module.exports.databaseOptions = {
     host     : 'localhost',
-    user     : 'Sayali',
-    password : 'Admin',
-    database: 'sitepoint'
+    user     : 'root',
+    password : 'Test123',
+    database : 'contactus'
   };
 

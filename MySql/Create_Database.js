@@ -6,8 +6,9 @@ connection.connect((err) => {
   if (err) throw err;
   console.log('Connected!');
 });
-const author = { name: 'Craig Buckler', city: 'Exmouth' };
-connection.query('INSERT INTO authors SET ?', author, (err, res) => {
+//FirstName,LastName,Email,Comments
+const contact = { FirstName: 'Craig Buckler', LastName: 'Exmouth' , Email: 'test@test.com' , Comments: 'test Comments'};
+connection.query('INSERT INTO Contacts SET ?', contact, (err, res) => {
   if(err) throw err;
 
   console.log('Last insert ID:', res.insertId);

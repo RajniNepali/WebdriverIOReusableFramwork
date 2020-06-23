@@ -150,6 +150,3 @@ Database used : mysql
 Dependency added : "mysql": "^2.18.1"  -> 
 Command : npm install mysql
 Database credentisls stored in config.js file in order to keep credentials secured.
-
-
-

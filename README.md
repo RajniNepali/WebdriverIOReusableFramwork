@@ -50,7 +50,7 @@ $ npx wdio wdio.conf.js
 Command :-npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
 Create - babel.config.js file in project 
 Add following code into babel.config.js file :-
---------------------------------------
+---------------------------------------
 module.exports = {
     presets: [
         ['@babel/preset-env', {
@@ -80,17 +80,31 @@ Install and setup ChromeDeiver :
 - npm install wdio-chromedriver-service --save-dev
 - npm install chromedriver --save-dev
 
-### allure-reports: It will execute generate Reports & Open reports.
+----------------------------------
+
+###Reports Generation:
+
+For generating reports use following command.
+
+npm run-script pretest ; npm run test ; npm run allure-reports
+
+In package.json file , Scripts are added for all commands mentioned above.
+
+pretest: All the previous reports will get cleared from project suite.
+test: Added tests for execution.
+allure-reports: It will execute generate Reports & Open reports.
 
 Below dependencies added for reports ;
 1."allure-commandline": "^1.4.22-1"
 2."wdio-video-reporter": "^3.0.0",
 3."@wdio/allure-reporter": "^6.1.14",
 4."@wdio/firefox-profile-service": "^6.1.14",
-5."@wdio/junit-reporter": "^6.1.14",
+5."@wdio/junit-reporter": "^6.1.14"
+
+----------------------------------
 
 
-### MultiBrowser Execution:
+###MultiBrowser Execution:
 
 Execution can be done on Multiple browsers in parallel.
 Following Browsers are added for multibrowser testing in the suite.
@@ -109,3 +123,33 @@ Below dependencies added for MultiBrowser execution ;
 3."chromedriver": "^83.0.0",
 4."selenium-standalone": "^6.17.0",
 5."wdio-chromedriver-service": "^6.0.3",
+Jenkins Integration:
+
+
+Configuring Allre reports with Jwnkins:
+1. Download jenkins
+2. In Jenkins Home page Configure-->Manage Jenkins -->install JIRA Plugin
+3. Now Again Go to Configure-->Global Tool Configuration
+4. Inside Allure Command line, Provide any name, Select install Automatically and select option of our choice 
+in this example I am downloading this from maven repository.
+5. Now Create New Jenkins Job and inside the post-build section select Allure Report and provide the path of allure report.
+6. Execute Our Jenkins Job
+7.  Now after execution, we would be able to see allure report icon in our Jenkins dashboard and we would
+be able to view allure report on our Jenkins dashboard.
+
+In the “Build Triggers” section, you can choose how and when the build should be triggered and run. 
+
+1. Build when a change is pushed to github : Allows You to trigger Build after every push into github
+2. Build periodically : Allows periodically scheduled tasks.Jenkins build periodically or on a specific date/time. Based on values added.
+
+----------------------------------
+
+###Database Integration :
+
+Database used : mysql
+Dependency added : "mysql": "^2.18.1"  -> 
+Command : npm install mysql
+Database credentisls stored in config.js file in order to keep credentials secured.
+
+
+

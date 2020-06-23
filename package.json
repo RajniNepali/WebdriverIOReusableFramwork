@@ -32,8 +32,10 @@
     "@wdio/sync": "^6.1.14",
     "chromedriver": "^83.0.0",
     "mocha": "^8.0.1",
+    "mocha-testrail-reporter": "^1.0.12",
     "selenium-standalone": "^6.17.0",
     "wdio-chromedriver-service": "^6.0.3",
+    "wdio-testrail-reporter": "^1.1.5",
     "webdriver": "^6.1.17"
   },
   "dependencies": {
@@ -43,7 +45,6 @@
     "mocha-testdata": "^1.2.0",
     "runner": "^3.0.0",
     "test": "^0.6.0",
-    "wdio-testrail-reporter": "^1.1.5",
     "xlsx": "^0.16.2"
   }
 }

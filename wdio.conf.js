@@ -1,4 +1,5 @@
-let WdioTestRailReporter = require('./node_modules/wdio-testrail-reporter/lib/wdio-testrail-reporter');
+
+let WdioTestRailReporter = require('./node_modules/wdio-testrail-reporter/lib/wdio-testrail-reporter')
 exports.config = {
     //
     // ====================
@@ -141,18 +142,16 @@ exports.config = {
       projectId: 1,
       suiteId: 1,
       runName: "TestRun1"
-    },
-
-
-    
+    },   
     //
     // Options to be passed to Mocha.
-    // See the full list at http://mochajs.org/
+    // See the full list at http://mochajs.org/   
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000,
         compilers: ['js:@babel/register']
     },
+
     //
     // =====
     // Hooks

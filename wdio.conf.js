@@ -1,6 +1,8 @@
 	//import reporter from 'wdio-allure-reporter'	
     const video = require('wdio-video-reporter');  // added for allure video reports
     exports.config = {
+
+      services: ['shared-store'],
         //
         // ====================
         // Runner Configuration
@@ -60,10 +62,10 @@
               browserName: 'firefox',	
               },	
            // internet explorer Browser	
-              {	
-               maxInstances: 1,	
-              browserName: 'internet explorer',	
-              },	
+              // {	
+              //  maxInstances: 1,	
+              // browserName: 'internet explorer',	
+              // },	
                     ], 
         //
         // ===================
@@ -132,7 +134,7 @@
         // The only one supported by default is 'dot'
         // see also: https://webdriver.io/docs/dot-reporter.html
         logLevel: 'info', // trace | debug | info | warn | error | silent	
-        outputDir: './_Reports_',  // output directory for keeping reports	
+        outputDir: './Reports',  // output directory for keeping reports	
         reporters: [	
             // Below commented code can be used to attach videos to the allure reports	
             // Note: Adding videos to allure reports may slower the speed of execution	
@@ -143,21 +145,21 @@
             }],	
             // Allure reports	
             ['allure', {	
-               outputDir: './_Reports_/allure-results',	
+               outputDir: './Reports/allure-results',	
               disableWebdriverStepsReporting: true,	
               disableWebdriverScreenshotsReporting: true,	
             }],	
             // spec reports 
             ['spec', {	
-                outputDir: './_Reports_/spec-results',	
+                outputDir: './Reports/spec-results',	
               }],
             //json reports	
             ['json', {	
-               outputDir: './_Reports_/json-results',	
+               outputDir: './Reports/json-results',	
              }],	
             //junit reports	
              ['junit', {	
-              outputDir: './_Reports_/junit-results',	
+              outputDir: './Reports/junit-results',	
             }],	
           ],
     
@@ -211,8 +213,12 @@
          * @param {Array.<Object>} capabilities list of capabilities details
          * @param {Array.<String>} specs List of spec file paths that are to be run
          */
-        // before: function (capabilities, specs) {
-        // },
+        before: function (capabilities, specs)
+         {
+
+           // browser.windowHandleSize({width: 160, height: 768})
+            browser.setWindowSize(1800, 1200);
+        },
         /**
          * Runs before a WebdriverIO command gets executed.
          * @param {String} commandName hook command name

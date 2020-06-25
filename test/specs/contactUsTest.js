@@ -11,7 +11,7 @@ describe("Test contact us page on webdriveruni", () => {
 
     });
 
-    given(data).it("Submit all information via the contact us page", 
+    given(data).it("C1 Submit all information via the contact us page", 
     function(FirstName,LastName,Email,Comments)
      {
         ContactUs_PO.formFillUp(FirstName,LastName,Email,Comments); 

@@ -1,5 +1,7 @@
 var config = require('../config/config');
 var mysql = require('mysql');
+//var config = require('../Reports/allure-results');
+
 var connection = mysql.createConnection(config.databaseOptions);
 
 connection.connect((err) => {

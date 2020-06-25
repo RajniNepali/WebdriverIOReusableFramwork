@@ -80,6 +80,47 @@ Install and setup ChromeDeiver :
 - npm install wdio-chromedriver-service --save-dev
 - npm install chromedriver --save-dev
 
+
+### Testrail Reporter for Webdriver.io (Test Management Tool Integration)
+Pushes test results into Testrail system. Fork from mocha testrail reporter
+
+Installation
+- npm install wdio-testrail-reporter --save-dev
+Usage
+Ensure that your testrail installation API is enabled and generate your API keys. See http://docs.gurock.com/
+
+Add reporter to wdio.conf.js:
+
+let WdioTestRailReporter = require('./packages/wdio-testrail-reporter/lib/wdio-testrail-reporter'); 
+...
+ 
+    reporters: ['spec', WdioTestRailReporter],
+    testRailsOptions: {
+      domain: "yourdomain.testrail.net",
+      username: "username",
+      password: "password",
+      projectId: 1,
+      suiteId: 1,
+      runName: "My test run"
+    }
+
+Mark your mocha test names with ID of Testrail test cases. Ensure that your case ids are well distinct from test descriptions.
+Example :
+    it("C123 C124 Authenticate with invalid user", . . .
+    it("Authenticate a valid user C321", . . .
+
+Only passed or failed tests will be published. Skipped or pending tests will not be published resulting in a "Pending" status in testrail test run.
+
+Options
+- domain: string domain name of your Testrail instance (e.g. for a hosted instance instance.testrail.net)
+- username: string user under which the test run will be created (e.g. jenkins or ci)
+- password: string password or API token for user
+- projectId: number projet number with which the tests are associated
+- suiteId: number suite number with which the tests are associated
+- assignedToId: number (optional) user id which will be assigned failed tests
+
+For More reference :https://www.npmjs.com/package/wdio-testrail-reporter
+
 ----------------------------------
 
 ### Reports Generation:
@@ -153,5 +194,4 @@ Database used : mysql Dependency added : "mysql": "^2.18.1"
 Command : npm install mysql
 Database credentisls stored in config.js file in order to keep credentials secured.
 Database Connection configuration is kept in the file config.js
-
 

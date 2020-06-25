@@ -1,5 +1,6 @@
 
 let WdioTestRailReporter = require('./node_modules/wdio-testrail-reporter/lib/wdio-testrail-reporter')
+const video = require('wdio-video-reporter');  // added for allure video reports
 exports.config = {
     //
     // ====================
@@ -54,12 +55,23 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome',
+        browserName: 'chrome',},
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-    }],
+         //firefox Browser	
+         {	
+            maxInstances: 1,	
+           browserName: 'firefox',	
+           },	
+        // internet explorer Browser	
+           {	
+            maxInstances: 1,	
+           browserName: 'internet explorer',	
+           },	
+  
+    ],
     //
     // ===================
     // Test Configurations
@@ -107,7 +119,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+     services: ['selenium-standalone'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -143,6 +155,38 @@ exports.config = {
       suiteId: 1,
       runName: "TestRun1"
     },   
+
+    //sayali's reports 
+    reporters: [
+   
+        [video, {	
+            saveAllVideos: false,       // If true, also saves videos for successful test cases	
+            videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]	
+            videoRenderTimeout: 5, 	
+        }],	
+    
+          // Allure reports	
+        ['allure', {	
+           outputDir: './Reports/allure-results',	
+          disableWebdriverStepsReporting: true,	
+          disableWebdriverScreenshotsReporting: false,	
+        }],	
+    
+        // spec reports 
+        ['spec', {	
+            outputDir: './Reports/spec-results',	
+          }],
+        //json reports	
+        ['json', {	
+           outputDir: './Reports/json-results',	
+         }],	
+        //junit reports	
+         ['junit', {	
+          outputDir: './Reports/junit-results',	
+        }],	
+        //Test rail
+    
+      ],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/   
@@ -228,10 +272,12 @@ exports.config = {
     /**
      * Function to be executed after a test (in Mocha/Jasmine).
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
-
-
+      afterTest: function(test, context, { error, result, duration, passed, retries }) {	
+        if (error !== undefined) {	
+            browser.takeScreenshot();	
+          }	
+        
+    },
     /**
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details

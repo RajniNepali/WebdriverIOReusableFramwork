@@ -4,7 +4,9 @@
   "description": "This is a webdriverio javascript based automation testing framework designed strcuture for resuability",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "",
+    "allure-reports": "allure generate ../Reports/allure-results && allure report open",
+    "pretest": "rimraf ./Reports/allure-results && rimraf ./Reports/allure-results && rimraf test-screenshots && rimraf wdio-logs"
   },
   "repository": {
     "type": "git",
@@ -31,7 +33,15 @@
     "mocha": "^8.0.1",
     "selenium-standalone": "^6.17.0",
     "wdio-chromedriver-service": "^6.0.3",
-    "webdriver": "^6.1.17"
+    "webdriver": "^6.1.17",
+    "@wdio/allure-reporter": "^6.1.14",
+    "@wdio/firefox-profile-service": "^6.1.14",	
+    "@wdio/junit-reporter": "^6.1.14",
+    "wdio-json-reporter": "^2.0.0",	
+    "wdio-testrail-reporter": "^1.1.5",	
+    "@wdio/shared-store-service": "^6.1.4",
+    "webdriverio": "^6.1.20"
+
   },
   "dependencies": {
     "chai": "^4.2.0",
@@ -39,6 +49,12 @@
     "mocha-testdata": "^1.2.0",
     "runner": "^3.0.0",
     "test": "^0.6.0",
-    "xlsx": "^0.16.2"
+    "xlsx": "^0.16.2",
+    "googleapis": "^52.1.0",
+    "allure-commandline": "^1.4.22-1",
+    "iedriver": "^3.14.2",
+    "mysql": "^2.18.1",
+    "wdio-video-reporter": "^3.0.0"
+
   }
 }

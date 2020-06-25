@@ -1,0 +1,62 @@
+23:50:51.361 INFO [ActiveSessionFactory.apply] - Capabilities are: {
+  "browserName": "firefox"
+}
+23:50:51.361 INFO [ActiveSessionFactory.apply] - Capabilities are: {
+  "browserName": "chrome"
+}
+23:50:51.363 INFO [ActiveSessionFactory.lambda$apply$11] - Matched factory org.openqa.selenium.grid.session.remote.ServicedSession$Factory (provider: org.openqa.selenium.firefox.GeckoDriverService)
+23:50:51.363 INFO [ActiveSessionFactory.lambda$apply$11] - Matched factory org.openqa.selenium.grid.session.remote.ServicedSession$Factory (provider: org.openqa.selenium.chrome.ChromeDriverService)
+Starting ChromeDriver 2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a) on port 12243
+Only local connections are allowed.
+1593067852736	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SAYALI~1.BAN\\AppData\\Local\\Temp\\rust_mozprofile.0eJFoEeYmoM2"
+[1593067855.690][WARNING]: Timed out connecting to Chrome, retrying...
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+23:50:57.726 INFO [ProtocolHandshake.createSession] - Detected dialect: OSS
+23:50:58.288 INFO [RemoteSession$Factory.lambda$performHandshake$0] - Started new session 294fbf1ea3f7b36d499d9e428c04ab63 (org.openqa.selenium.chrome.ChromeDriverService)
+1593067859503	Marionette	INFO	Listening on port 56600
+23:50:59.681 INFO [ProtocolHandshake.createSession] - Detected dialect: W3C
+23:50:59.741 INFO [RemoteSession$Factory.lambda$performHandshake$0] - Started new session c12e2485-5047-4aaf-9dac-a6b76fccfdf8 (org.openqa.selenium.firefox.GeckoDriverService)
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 203: NS_ERROR_FAILURE: Should pass a non-null uri
+[1593067860.342][WARNING]: Timed out connecting to Chrome, retrying...
+1593067870481	Marionette	INFO	Stopped listening on port 56600
+23:51:13.566 INFO [ActiveSessions$1.onStop] - Removing session 294fbf1ea3f7b36d499d9e428c04ab63 (org.openqa.selenium.chrome.ChromeDriverService)
+23:51:18.316 INFO [ActiveSessionFactory.apply] - Capabilities are: {
+  "browserName": "chrome"
+}
+23:51:18.316 INFO [ActiveSessionFactory.lambda$apply$11] - Matched factory org.openqa.selenium.grid.session.remote.ServicedSession$Factory (provider: org.openqa.selenium.chrome.ChromeDriverService)
+Starting ChromeDriver 2.43.600210 (68dcf5eebde37173d4027fa8635e332711d2874a) on port 40119
+Only local connections are allowed.
+[1593067881.963][WARNING]: Timed out connecting to Chrome, retrying...
+23:51:23.982 INFO [ProtocolHandshake.createSession] - Detected dialect: OSS
+23:51:24.012 INFO [RemoteSession$Factory.lambda$performHandshake$0] - Started new session 1b993c2e2af19d9f28666b45203e149c (org.openqa.selenium.chrome.ChromeDriverService)
+[1593067886.029][WARNING]: Timed out connecting to Chrome, retrying...
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+23:51:28.701 INFO [ActiveSessions$1.onStop] - Removing session 1b993c2e2af19d9f28666b45203e149c (org.openqa.selenium.chrome.ChromeDriverService)
+23:51:29.164 INFO [ActiveSessions$1.onStop] - Removing session c12e2485-5047-4aaf-9dac-a6b76fccfdf8 (org.openqa.selenium.firefox.GeckoDriverService)
+23:51:31.585 INFO [ActiveSessionFactory.apply] - Capabilities are: {
+  "browserName": "firefox"
+}
+23:51:31.585 INFO [ActiveSessionFactory.lambda$apply$11] - Matched factory org.openqa.selenium.grid.session.remote.ServicedSession$Factory (provider: org.openqa.selenium.firefox.GeckoDriverService)
+1593067892146	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\SAYALI~1.BAN\\AppData\\Local\\Temp\\rust_mozprofile.DESejlVhOi8L"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1593067896088	Marionette	INFO	Listening on port 56756
+23:51:37.106 INFO [ProtocolHandshake.createSession] - Detected dialect: W3C
+23:51:37.108 INFO [RemoteSession$Factory.lambda$performHandshake$0] - Started new session 6676aa18-5b10-49cd-ad09-0e13907119ea (org.openqa.selenium.firefox.GeckoDriverService)
+1593067897256	Marionette	INFO	Stopped listening on port 56756
+JavaScript error: resource://gre/modules/URIFixup.jsm, line 203: NS_ERROR_FAILURE: Should pass a non-null uri
+JavaScript error: resource://activity-stream/lib/ActivityStreamPrefs.jsm, line 27: NS_ERROR_ILLEGAL_VALUE: Component returned failure code: 0x80070057 (NS_ERROR_ILLEGAL_VALUE) [nsIPrefBranch.removeObserver]
+JavaScript error: resource://services-settings/RemoteSettingsClient.jsm, line 115: Error: Unknown callback
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 921: Error: Connection is not open.
+JavaScript error: resource://services-settings/IDBHelpers.jsm, line 24: AbortError: IndexedDB: main/anti-tracking-url-decoration list() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+23:51:44.655 INFO [ActiveSessions$1.onStop] - Removing session 6676aa18-5b10-49cd-ad09-0e13907119ea (org.openqa.selenium.firefox.GeckoDriverService)

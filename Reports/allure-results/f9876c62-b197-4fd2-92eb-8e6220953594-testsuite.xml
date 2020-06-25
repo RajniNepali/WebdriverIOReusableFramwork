@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1593067862878' stop='1593067873332'>
+    <name>webdriver.io page</name>
+    <title>webdriver.io page</title>
+    <test-cases>
+        <test-case start='1593067862888' status='passed' stop='1593067873320'>
+            <name>should have the right title</name>
+            <title>should have the right title</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-83.0.4103.106'/>
+            </parameters>
+            <steps/>
+            <attachments>
+                <attachment title='Screenshot' source='70ae0c4a-49f8-46a1-a436-12325cce4923-attachment.png' type='image/png' size='115814'/>
+            </attachments>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

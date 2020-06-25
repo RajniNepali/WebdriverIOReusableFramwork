@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="webdriver_io_page" timestamp="2020-06-24T23:51:02" time="10.466" tests="1" failures="0" errors="0" skipped="0">
+    <properties>
+      <property name="specId" value="0"/>
+      <property name="suiteName" value="webdriver.io page"/>
+      <property name="capabilities" value="chrome.83_0_4103_106.windowsnt"/>
+      <property name="file" value=".\test\specs\basics.js"/>
+    </properties>
+    <testcase classname="chrome.83_0_4103_106.windowsnt.webdriver_io_page" name="should_have_the_right_title" time="10.431"/>
+  </testsuite>
+</testsuites>

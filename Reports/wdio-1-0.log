@@ -1,0 +1,23 @@
+2020-06-25T06:50:48.651Z INFO @wdio/local-runner: Run worker command: run
+2020-06-25T06:50:48.927Z INFO webdriverio: Initiate new session using the ./protocol-stub protocol
+2020-06-25T06:50:51.204Z INFO webdriverio: Initiate new session using the webdriver protocol
+2020-06-25T06:50:51.206Z INFO webdriver: [POST] http://localhost:4444/wd/hub/session
+2020-06-25T06:50:51.207Z INFO webdriver: DATA {
+  capabilities: { alwaysMatch: { browserName: 'firefox' }, firstMatch: [ {} ] },
+  desiredCapabilities: { browserName: 'firefox' }
+}
+2020-06-25T06:50:59.791Z INFO webdriver: COMMAND setWindowRect(null, null, 1800, 1200)
+2020-06-25T06:50:59.792Z INFO webdriver: [POST] http://localhost:4444/wd/hub/session/c12e2485-5047-4aaf-9dac-a6b76fccfdf8/window/rect
+2020-06-25T06:50:59.792Z INFO webdriver: DATA { x: null, y: null, width: 1800, height: 1200 }
+2020-06-25T06:50:59.929Z INFO webdriver: RESULT { x: 4, y: 4, width: 1800, height: 1200 }
+2020-06-25T06:51:01.262Z INFO webdriver: COMMAND navigateTo("https://webdriver.io/")
+2020-06-25T06:51:01.262Z INFO webdriver: [POST] http://localhost:4444/wd/hub/session/c12e2485-5047-4aaf-9dac-a6b76fccfdf8/url
+2020-06-25T06:51:01.263Z INFO webdriver: DATA { url: 'https://webdriver.io/' }
+2020-06-25T06:51:09.925Z INFO webdriver: COMMAND takeScreenshot()
+2020-06-25T06:51:09.926Z INFO webdriver: [GET] http://localhost:4444/wd/hub/session/c12e2485-5047-4aaf-9dac-a6b76fccfdf8/screenshot
+2020-06-25T06:51:09.936Z INFO webdriver: COMMAND getTitle()
+2020-06-25T06:51:09.936Z INFO webdriver: [GET] http://localhost:4444/wd/hub/session/c12e2485-5047-4aaf-9dac-a6b76fccfdf8/title
+2020-06-25T06:51:10.403Z INFO webdriver: RESULT WebdriverIO · Next-gen browser and mobile automation test framework for Node.js
+2020-06-25T06:51:10.420Z INFO webdriver: RESULT iVBORw0KGgoAAAANSUhEUgAABvwAAARgCAYAAAAl9fEPAAAgAElEQVR4nOy9b...
+2020-06-25T06:51:10.469Z INFO webdriver: COMMAND deleteSession()
+2020-06-25T06:51:10.470Z INFO webdriver: [DELETE] http://localhost:4444/wd/hub/session/c12e2485-5047-4aaf-9dac-a6b76fccfdf8

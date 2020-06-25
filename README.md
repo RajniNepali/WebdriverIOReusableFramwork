@@ -120,3 +120,77 @@ Options
 - assignedToId: number (optional) user id which will be assigned failed tests
 
 For More reference :https://www.npmjs.com/package/wdio-testrail-reporter
+
+----------------------------------
+
+### Reports Generation:
+
+For generating reports use following command.
+
+npm run-script pretest ; npm run test ; npm run allure-reports
+
+In package.json file , Scripts are added for all commands mentioned above.
+
+pretest: All the previous reports will get cleared from project suite. test: Added tests for execution. allure-reports: It will execute generate Reports & Open reports.
+
+Below dependencies added for reports ; 
+1."allure-commandline": "^1.4.22-1" 
+2."wdio-video-reporter": "^3.0.0", 
+3."@wdio/allure-reporter": "^6.1.14", 
+4."@wdio/firefox-profile-service": "^6.1.14", 
+5."@wdio/junit-reporter": "^6.1.14"
+
+For clearing previuos generated resports "pretest" is added inside package.json file 
+Allure reports generation command is stored in "allure-reports" inside package.json file 
+
+Execution Command: npm run-script pretest ; npm run test ; npm run allure-reports
+
+If needed all commands can be clubbed and executed in the above given format, it will clear reports run tests and finally generate and open new allure reports.
+
+----------------------------------
+
+### MultiBrowser Execution:
+
+Execution can be done on Multiple browsers in parallel. Following Browsers are added for multibrowser testing in the suite.
+
+Chrome Browsers
+Internet Browsers
+Mozilla firefox Browsers
+We can also define maximum number of Instances of browser using variable maxInstances in wdio.conf.js file
+
+Below dependencies added for MultiBrowser execution ;
+
+@babel/register": "^7.10.1",
+
+1."@wdio/firefox-profile-service": "^6.1.14",
+2."@wdio/selenium-standalone-service": "^6.1.14",
+3."chromedriver": "^83.0.0", 
+4."selenium-standalone": "^6.17.0", 
+5."wdio-chromedriver-service": "^6.0.3"
+
+----------------------------------
+
+### Jenkins Integration:
+
+Configuring Allre reports with Jwnkins:
+
+Download jenkins
+In Jenkins Home page Configure-->Manage Jenkins -->install JIRA Plugin
+Now Again Go to Configure-->Global Tool Configuration
+Inside Allure Command line, Provide any name, Select install Automatically and select option of our choice in this example I am downloading this from maven repository.
+Now Create New Jenkins Job and inside the post-build section select Allure Report and provide the path of allure report.
+Execute Our Jenkins Job
+Now after execution, we would be able to see allure report icon in our Jenkins dashboard and we would be able to view allure report on our Jenkins dashboard.
+In the “Build Triggers” section, you can choose how and when the build should be triggered and run.
+
+Build when a change is pushed to github : Allows You to trigger Build after every push into github
+Build periodically : Allows periodically scheduled tasks.Jenkins build periodically or on a specific date/time. Based on values added.
+
+----------------------------------
+
+### Database Integration :
+
+Database used : mysql Dependency added : "mysql": "^2.18.1" 
+Command : npm install mysql
+Database credentisls stored in config.js file in order to keep credentials secured.
+Database Connection configuration is kept in the file config.js

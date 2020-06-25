@@ -239,7 +239,180 @@ class BaseMethodsPage
                 return false;
             }
     }
+     /*===============================================================================
+                                           
+         Purpose: This function is used verify if Object Is Displayed
+         Author: Sayali Bankar
+         Updated By:  
+         Creation Date: 06/12/2020
+         Input Parameters: strObjName
+         Return value: True if sucessful else false   
+         ===============================================================================*/
 
+         Web_VerifyObjectIsDisplayed(strObjName)
+         {
+             try
+             {
+                 var blstatus = $(strObjName).isDisplayed()
+                 if (blstatus.Equals(true))
+                 {
+                     console.log("Object Is Displayed" + blstatus); 
+                 }
+              }
+             catch (error)
+             {
+                console.log("Object Is Not Displayed" + blstatus);
+             }
+ 
+         }
+
+    /*===============================================================================
+                                          
+         Purpose: This function is used verify if Object Is Displayed InViewport
+         Author: Sayali Bankar
+         Updated By:  
+         Creation Date: 06/12/2020
+         Input Parameters: strObjName
+         Return value: True if sucessful else false   
+         ===============================================================================*/
+
+         Web_VerifyObjectIsDisplayedInViewport(strObjName)
+         {
+             try
+             {
+                 var blstatus = $(strObjName).isDisplayedInViewport()
+                 if (blstatus.Equals(true))
+                 {
+                    console.log("Object Is Displayed In ViewportClickable" + blstatus);
+                 }
+             }
+             catch (error)
+             {
+                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
+
+             }
+ 
+         }
+
+    /*===============================================================================
+                                            
+         Purpose: This function is used verify if Object Is Displayed InViewport
+         Author: Sayali Bankar
+         Updated By:  
+         Creation Date: 06/12/2020
+         Input Parameters: strObjName
+         Return value: True if sucessful else false   
+         ===============================================================================*/
+
+         Web_VerifyObjectIsEnabled(strObjName)
+         {
+             try
+             {
+                 var blstatus = $(strObjName).isEnabled()
+                 if (blstatus.Equals(true))
+                 {
+                    console.log("Object Is Displayed In ViewportClickable" + blstatus);
+                 }
+             }
+             catch (error)
+             {
+                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
+
+             }
+ 
+         }
+
+         /*===============================================================================
+                                          
+         Purpose: This function is used to get Current browser url
+         Author: Sayali Bankar
+         Updated By:  
+         Creation Date: 06/12/2020
+         Return value: Returns string url 
+         ===============================================================================*/
+
+         Web_getUrl(strObjName)
+         {
+             try
+             {
+                var getCurrentUrl = browser.getUrl();
+                console.log("Url is " + getCurrentUrl);
+                
+             }
+             catch (error)
+             {
+                return false;
+             }
+ 
+         }
+
+    /*===============================================================================                                        
+         Purpose: This function is used to get element text
+         Author: Sayali Bankar
+         Updated By:  
+         Creation Date: 06/12/2020
+         Input Parameters: strObjName
+         Return value: return string element text  
+
+         ===============================================================================*/
+
+         Web_GetElementText(strObjName)
+         {
+             try
+             {
+                var elementText = browser.getElementText(elementId)
+
+                 {
+                    console.log("Object Is Displayed In ViewportClickable" + blstatus);
+                 }
+             }
+             catch (error)
+             {
+                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
+             }
+         }
+
+     /*===============================================================================
+                                          
+         Purpose: This function is used to get element text
+         Author: Sayali Bankar
+         Updated By:  
+         Creation Date: 06/12/2020
+         Input Parameters: strObjName
+         Return value: return string element text  
+         ===============================================================================*/
+
+         Web_GetAlertText(strObjName)
+         {
+             try
+             {
+                   var AlertText= browser.getAlertText()
+                    console.log("Object Is Displayed In ViewportClickable" + blstatus);
+             }
+             catch (error)
+             {
+                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
+             }
+         }
+
+/*===============================================================================
+                                          
+         Purpose: This function is used to get element text
+         Author: Sayali Bankar
+         Updated By:  
+         Creation Date: 06/12/2020
+         Input Parameters: strObjName
+         Return value: return string element text  
+         ===============================================================================*/
+
+         getRandomNumber(minNumber, maxNumber)
+         {
+
+                var number = minNumber + (Math.random() * maxNumber);
+                return Math.floor(number);
+        }
+
+//END
 }
 export default new BaseMethodsPage()
     

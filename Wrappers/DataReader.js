@@ -1,6 +1,6 @@
 const GSheetReader = require('g-sheets-api');
 class DataReaderPage{
-
+//This is the page for the data reading from the excel sheets
 processExcel(fileName) {
     //Read the Excel File data.
     const XLSX = require('xlsx');

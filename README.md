@@ -127,19 +127,28 @@ For More reference :https://www.npmjs.com/package/wdio-testrail-reporter
 
 For generating reports use following command.
 
+Reporting options added : Spec reports, Junit reports, Json reports, Allure reports
+
+1. Spec reports can be directly seen on execution terminal.
+2. Json and Junit and Allure reports will be generated under reports folder.
+3. To Open Allure reports Allure Commandline is used, It will copy Allre reports data inside allure-report  folder and open those reports 
+
 npm run-script pretest ; npm run test ; npm run allure-reports
 
 In package.json file , Scripts are added for all commands mentioned above.
 
-pretest: All the previous reports will get cleared from project suite. test: Added tests for execution. allure-reports: It will execute generate Reports & Open reports.
+pretest: All the previous reports will get cleared from project suite. 
+test: Added tests for execution.
+allure-reports: It will execute generate Reports & Open reports.
+(this command generates a report in temporary folder from the data found in the provided path and then creates a local server instance, serves generated report and opens it in the default browser.)
 
-Below dependencies added for reports ; 
-1."allure-commandline": "^1.4.22-1" 
-2."wdio-video-reporter": "^3.0.0", 
-3."@wdio/allure-reporter": "^6.1.14", 
-4."@wdio/firefox-profile-service": "^6.1.14", 
-5."@wdio/junit-reporter": "^6.1.14"
+Below dependencies are added for reports ; 
+1."allure-commandline": "^1.4.22-1",  - npm install -g allure-commandline --save-dev
+2."wdio-video-reporter": "^3.0.0",    -npm install wdio-video-reporter
+3."@wdio/allure-reporter": "^6.1.14", -npm install @wdio/allure-reporter --save-dev
+4."@wdio/junit-reporter": "^6.1.14"   -npm install @wdio/junit-reporter --save-dev
 
+Function to take screenshot is added inside afterTest block in wdio.config.js file.
 For clearing previuos generated resports "pretest" is added inside package.json file 
 Allure reports generation command is stored in "allure-reports" inside package.json file 
 
@@ -147,50 +156,57 @@ Execution Command: npm run-script pretest ; npm run test ; npm run allure-report
 
 If needed all commands can be clubbed and executed in the above given format, it will clear reports run tests and finally generate and open new allure reports.
 
+For More reference: https://webdriver.io/docs/allure-reporter.html
+
 ----------------------------------
 
 ### MultiBrowser Execution:
 
 Execution can be done on Multiple browsers in parallel. Following Browsers are added for multibrowser testing in the suite.
 
-Chrome Browsers
-Internet Browsers
-Mozilla firefox Browsers
+1. Chrome Browsers
+2. Internet Browsers
+3. Mozilla firefox Browsers
 We can also define maximum number of Instances of browser using variable maxInstances in wdio.conf.js file
 
 Below dependencies added for MultiBrowser execution ;
 
-@babel/register": "^7.10.1",
-
-1."@wdio/firefox-profile-service": "^6.1.14",
-2."@wdio/selenium-standalone-service": "^6.1.14",
-3."chromedriver": "^83.0.0", 
-4."selenium-standalone": "^6.17.0", 
-5."wdio-chromedriver-service": "^6.0.3"
+1. "@wdio/firefox-profile-service": "^6.1.14",     -npm install @wdio/firefox-profile-service --save-dev
+2. "@wdio/selenium-standalone-service": "^6.1.14", -npm install @wdio/selenium-standalone-service --save-dev
+3. "chromedriver": "^83.0.0",                      -npm install chromedriver
+4. "selenium-standalone": "^6.17.0",               -npm install selenium-standalone@latest -g
+5. "wdio-chromedriver-service": "^6.0.3"           -npm install wdio-chromedriver-service --save-dev
 
 ----------------------------------
 
 ### Jenkins Integration:
 
-Configuring Allre reports with Jwnkins:
+Configuring Allure reports with Jwnkins:
 
-Download jenkins
-In Jenkins Home page Configure-->Manage Jenkins -->install JIRA Plugin
-Now Again Go to Configure-->Global Tool Configuration
-Inside Allure Command line, Provide any name, Select install Automatically and select option of our choice in this example I am downloading this from maven repository.
-Now Create New Jenkins Job and inside the post-build section select Allure Report and provide the path of allure report.
-Execute Our Jenkins Job
-Now after execution, we would be able to see allure report icon in our Jenkins dashboard and we would be able to view allure report on our Jenkins dashboard.
-In the “Build Triggers” section, you can choose how and when the build should be triggered and run.
 
-Build when a change is pushed to github : Allows You to trigger Build after every push into github
-Build periodically : Allows periodically scheduled tasks.Jenkins build periodically or on a specific date/time. Based on values added.
+1. In Jenkins Home page Configure-->Manage Jenkins -> add Allure Jenkins Plugin
+2. Now Again Go to Configure-->Global Tool Configuration
+3. Inside Allure Command line, Provide any name, Select install Automatically and select option of our choice in this.
+4. Now Create New Jenkins Job and inside the post-build section select Allure Report and provide the path of allure report.
+For More reference: https://www.qaautomation.co.in/2018/12/allure-report-integration-with-jenkins.html
+
+5. In Build Section : Execute Windows batch command  - Commands required for test execution are added.
+- Add path of your test suite (in case of local suite)
+- Add command for execution (npm run test))
+
+6. Execute Our Jenkins Job
+7. Now after execution, we would be able to see allure report icon in our Jenkins dashboard and we would be able to view allure report on our Jenkins dashboard.
+8. In the “Build Triggers” section, you can choose how and when the build should be triggered and run.
+
+9. Build when a change is pushed to github : Allows You to trigger Build after every push into github
+10. Build periodically : Allows periodically scheduled tasks.Jenkins build periodically or on a specific date/time. Based on values added.
 
 ----------------------------------
 
 ### Database Integration :
 
-Database used : mysql Dependency added : "mysql": "^2.18.1" 
+Database used : mysql Dependency added : "mysql": "^2.18.1"
 Command : npm install mysql
 Database credentisls stored in config.js file in order to keep credentials secured.
 Database Connection configuration is kept in the file config.js
+Command to execute : node (filename).js

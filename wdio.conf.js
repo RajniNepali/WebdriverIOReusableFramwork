@@ -1,6 +1,8 @@
 
 let WdioTestRailReporter = require('./node_modules/wdio-testrail-reporter/lib/wdio-testrail-reporter')
 const video = require('wdio-video-reporter');  // added for allure video reports
+//const reporter = require('wdio-allure-reporter')
+
 exports.config = {
     //
     // ====================
@@ -11,6 +13,8 @@ exports.config = {
     // on a remote machine).
     runner: 'local',
     //
+
+    path: '/',
     // ==================
     // Specify Test Files
     // ==================
@@ -62,12 +66,12 @@ exports.config = {
         // excludeDriverLogs: ['bugreport', 'server'],
          //firefox Browser	
          {	
-            maxInstances: 1,	
+            maxInstances: 5,	
            browserName: 'firefox',	
            },	
         // internet explorer Browser	
            {	
-            maxInstances: 1,	
+            maxInstances: 5,	
            browserName: 'internet explorer',	
            },	
   
@@ -163,6 +167,7 @@ exports.config = {
             saveAllVideos: false,       // If true, also saves videos for successful test cases	
             videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]	
             videoRenderTimeout: 5, 	
+            outputDir: './Reports/videos',	
         }],	
     
           // Allure reports	

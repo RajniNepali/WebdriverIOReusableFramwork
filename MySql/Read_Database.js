@@ -1,16 +1,19 @@
 var config = require('../config/DB_config');
 var mysql = require('mysql');
 var connection = mysql.createConnection(config.databaseOptions);
+var result;
 
 
-   connection.connect((err) => {
+    connection.connect((err) => {
         if (err) throw err;
-        console.log('Connected!');
+        console.log('Conneted!');
       });
- 
-    connection.query('SELECT * FROM contactus', (err,rows) => {
+
+      module.exports.ReadDatabase = connection.query('SELECT * FROM contactus', (err,rows) => {
         if(err) throw err;
           console.log('Data received from Db:');
           console.log(rows);
+          result = rows;
       });
+       
  

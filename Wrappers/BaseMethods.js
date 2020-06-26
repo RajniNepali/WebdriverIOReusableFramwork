@@ -258,10 +258,14 @@ class BaseMethodsPage
                  {
                      console.log("Object Is Displayed" + blstatus); 
                  }
+                 else
+                 {
+                    console.log("Object Is Not  Displayed" + blstatus); 
+                }
               }
              catch (error)
              {
-                console.log("Object Is Not Displayed" + blstatus);
+                console.log("Failed to verify object displayed" + error.message);
              }
  
          }
@@ -285,10 +289,14 @@ class BaseMethodsPage
                  {
                     console.log("Object Is Displayed In ViewportClickable" + blstatus);
                  }
+                 else 
+                 {
+                    console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
+                 }
              }
              catch (error)
              {
-                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
+                console.log("Failed to verify object Displayed In ViewportClickable" + error.message);
 
              }
  
@@ -316,7 +324,7 @@ class BaseMethodsPage
              }
              catch (error)
              {
-                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
+                console.log("Failed to verify Object " + error.message);
 
              }
  
@@ -360,15 +368,12 @@ class BaseMethodsPage
          {
              try
              {
-                var elementText = browser.getElementText(elementId)
-
-                 {
-                    console.log("Object Is Displayed In ViewportClickable" + blstatus);
-                 }
-             }
+                var elementText = browser.getElementText(strObjName)
+                console.log("Element Text is" + blstatus);
+            }
              catch (error)
              {
-                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
+                console.log("Failed to get element Text" + error.message);
              }
          }
 
@@ -387,11 +392,11 @@ class BaseMethodsPage
              try
              {
                    var AlertText= browser.getAlertText()
-                    console.log("Object Is Displayed In ViewportClickable" + blstatus);
+                    console.log("Alert text is" + blstatus);
              }
              catch (error)
              {
-                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
+                console.log("Failed to get Alert text" + error.message);
              }
          }
 
@@ -407,10 +412,16 @@ class BaseMethodsPage
 
          getRandomNumber(minNumber, maxNumber)
          {
+         try {
+            var number = minNumber + (Math.random() * maxNumber);
+            return Math.floor(number);
+             }
+        catch (error)
+            {
+           console.log("Failed to generate random number" +  error.message);
 
-                var number = minNumber + (Math.random() * maxNumber);
-                return Math.floor(number);
-        }
+            }
+         }
 
 //END
 }

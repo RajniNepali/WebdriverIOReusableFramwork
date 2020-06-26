@@ -1,5 +1,4 @@
 const sync = require('@wdio/sync').default
-var sheetReader = require('./main.js').default
 const ELEMENT_WAIT_PERIOD_SECONDS = 60;
 class BaseMethodsPage 
 {
@@ -20,7 +19,6 @@ class BaseMethodsPage
         }
     }
 
-    //This is a method used to set the value in the lement field whose locator is passed to the method.
     SetValue(locator, value)
     {
         try{
@@ -37,7 +35,6 @@ class BaseMethodsPage
         }
     }
 
-    // This is a methods used to get the text from the element which is displayed
     GetElementText(locator)
     {
         try{
@@ -51,7 +48,6 @@ class BaseMethodsPage
         }
     }
 
-    //This is method used to get the value of the element whose pass the locator.
     GetElementValue(locator)
     {
         try{
@@ -65,7 +61,6 @@ class BaseMethodsPage
         }
     }
     
-    //This method is used to get the element filed clear.
     ClearElementField(locator)
     {
         try{
@@ -79,7 +74,6 @@ class BaseMethodsPage
         }    
     }
 
-    //This method is used to double click on the element.
     DoubleClickOnElement(locator)
     {
         var elementExist = browser.isElementDisplayed(locator);
@@ -95,7 +89,6 @@ class BaseMethodsPage
         console.log("Element Not Found");
     }
 
-    //This methods is used to Hover over the element.
     HoverOnTheElement(locator)
     {
         var elementExist = browser.isElementDisplayed(locator);
@@ -110,8 +103,6 @@ class BaseMethodsPage
         else
         console.log("Element Not Found");
     }
-
-    //This method is used to Hover and click on the element.
     HoverAndClickOnElement(locator)
     {
         var elementExist = browser.isElementDisplayed(locator);
@@ -128,7 +119,6 @@ class BaseMethodsPage
         console.log("Element Not Found");
     }
 
-    //This method is used to select the dropdown option by passing the index value.
     SelectDropDownOptionByIndex(locator, index)
     {  
         try
@@ -153,7 +143,7 @@ class BaseMethodsPage
             ProcessError(e, locator);
         }
     }
-//This method is used to select the dropdown option by passing the atrribute and its value.
+
     SelectDropDownOptionByAttribute(locator, attribute, value)
     {  
         try
@@ -179,7 +169,6 @@ class BaseMethodsPage
         }
     }
     
-    //This method is used to select the option in the dropdown by the visible text.
     SelectDropDownOptionByVisibleText(locator, visibleText)
     {  
         try
@@ -204,8 +193,6 @@ class BaseMethodsPage
             ProcessError(e, locator);
         }
     }
-
-    //This method is used to slect the radio option by the visible text of the element
     SelectRadioButtonOptionByText(locator,radioText)
     {
         try{
@@ -239,180 +226,20 @@ class BaseMethodsPage
                 return false;
             }
     }
-     /*===============================================================================
-                                           
-         Purpose: This function is used verify if Object Is Displayed
-         Author: Sayali Bankar
-         Updated By:  
-         Creation Date: 06/12/2020
-         Input Parameters: strObjName
-         Return value: True if sucessful else false   
-         ===============================================================================*/
-
-         Web_VerifyObjectIsDisplayed(strObjName)
-         {
-             try
-             {
-                 var blstatus = $(strObjName).isDisplayed()
-                 if (blstatus.Equals(true))
-                 {
-                     console.log("Object Is Displayed" + blstatus); 
-                 }
-              }
-             catch (error)
-             {
-                console.log("Object Is Not Displayed" + blstatus);
-             }
- 
-         }
-
-    /*===============================================================================
-                                          
-         Purpose: This function is used verify if Object Is Displayed InViewport
-         Author: Sayali Bankar
-         Updated By:  
-         Creation Date: 06/12/2020
-         Input Parameters: strObjName
-         Return value: True if sucessful else false   
-         ===============================================================================*/
-
-         Web_VerifyObjectIsDisplayedInViewport(strObjName)
-         {
-             try
-             {
-                 var blstatus = $(strObjName).isDisplayedInViewport()
-                 if (blstatus.Equals(true))
-                 {
-                    console.log("Object Is Displayed In ViewportClickable" + blstatus);
-                 }
-             }
-             catch (error)
-             {
-                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
-
-             }
- 
-         }
-
-    /*===============================================================================
-                                            
-         Purpose: This function is used verify if Object Is Displayed InViewport
-         Author: Sayali Bankar
-         Updated By:  
-         Creation Date: 06/12/2020
-         Input Parameters: strObjName
-         Return value: True if sucessful else false   
-         ===============================================================================*/
-
-         Web_VerifyObjectIsEnabled(strObjName)
-         {
-             try
-             {
-                 var blstatus = $(strObjName).isEnabled()
-                 if (blstatus.Equals(true))
-                 {
-                    console.log("Object Is Displayed In ViewportClickable" + blstatus);
-                 }
-             }
-             catch (error)
-             {
-                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
-
-             }
- 
-         }
-
-         /*===============================================================================
-                                          
-         Purpose: This function is used to get Current browser url
-         Author: Sayali Bankar
-         Updated By:  
-         Creation Date: 06/12/2020
-         Return value: Returns string url 
-         ===============================================================================*/
-
-         Web_getUrl(strObjName)
-         {
-             try
-             {
-                var getCurrentUrl = browser.getUrl();
-                console.log("Url is " + getCurrentUrl);
-                
-             }
-             catch (error)
-             {
-                return false;
-             }
- 
-         }
-
-    /*===============================================================================                                        
-         Purpose: This function is used to get element text
-         Author: Sayali Bankar
-         Updated By:  
-         Creation Date: 06/12/2020
-         Input Parameters: strObjName
-         Return value: return string element text  
-
-         ===============================================================================*/
-
-         Web_GetElementText(strObjName)
-         {
-             try
-             {
-                var elementText = browser.getElementText(elementId)
-
-                 {
-                    console.log("Object Is Displayed In ViewportClickable" + blstatus);
-                 }
-             }
-             catch (error)
-             {
-                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
-             }
-         }
-
-     /*===============================================================================
-                                          
-         Purpose: This function is used to get element text
-         Author: Sayali Bankar
-         Updated By:  
-         Creation Date: 06/12/2020
-         Input Parameters: strObjName
-         Return value: return string element text  
-         ===============================================================================*/
-
-         Web_GetAlertText(strObjName)
-         {
-             try
-             {
-                   var AlertText= browser.getAlertText()
-                    console.log("Object Is Displayed In ViewportClickable" + blstatus);
-             }
-             catch (error)
-             {
-                console.log("Object Is Not Displayed In ViewportClickable" + blstatus);
-             }
-         }
-
-/*===============================================================================
-                                          
-         Purpose: This function is used to get element text
-         Author: Sayali Bankar
-         Updated By:  
-         Creation Date: 06/12/2020
-         Input Parameters: strObjName
-         Return value: return string element text  
-         ===============================================================================*/
-
-         getRandomNumber(minNumber, maxNumber)
-         {
-
-                var number = minNumber + (Math.random() * maxNumber);
-                return Math.floor(number);
+    
+    ScrollToElement(locator, alignTop = false)
+    {
+        try{
+            browser.isElementDisplayed(locator);
+            var element = browser.findElement(locator);
+            $(locator).scrollIntoView();
+        }catch(error)
+        {
+            return false;
         }
+    }
 
-//END
+
 }
 export default new BaseMethodsPage()
     

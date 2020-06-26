@@ -4,8 +4,8 @@ class DataReaderPage{
 processExcel(fileName) {
     //Read the Excel File data.
     const XLSX = require('xlsx');
-    const workbook = XLSX.readFile('D:\\WebdriverResuableComponents-06-11-2020\\WebdriverResuableComponents-06-11-2020\\WebdriverResuableComponents\\TestData\\' + fileName);
-    
+    //const workbook = XLSX.readFile('D:\\WebdriverResuableComponents-06-11-2020\\WebdriverResuableComponents-06-11-2020\\WebdriverResuableComponents\\TestData\\' + fileName);
+    const workbook = XLSX.readFile('D:\Git-Clone\WebdriverIOReusableFramework\WebdriverIOReusableFramwork\TestData\\' + fileName);
     //Fetch the name of First Sheet.
     const firstSheet = workbook.SheetNames[0];
     

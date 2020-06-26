@@ -175,7 +175,7 @@ Below dependencies added for MultiBrowser execution ;
 Configuring Allre reports with Jwnkins:
 
 Download jenkins
-In Jenkins Home page Configure-->Manage Jenkins -->install JIRA Plugin
+In Jenkins Home page Configure-->Manage Jenkins
 Now Again Go to Configure-->Global Tool Configuration
 Inside Allure Command line, Provide any name, Select install Automatically and select option of our choice in this example I am downloading this from maven repository.
 Now Create New Jenkins Job and inside the post-build section select Allure Report and provide the path of allure report.

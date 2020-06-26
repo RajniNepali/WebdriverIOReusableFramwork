@@ -47,10 +47,6 @@ class ContactUs_PO extends page{
         BasepageMethods.clickElement (SubmitButtonLocator);   
     }
 
-    get successfulContactHeader() {
-        return $("//div[@id='contact_reply']/h1");
-    }
-
 }
 export default new ContactUs_PO()
 //module.exports = new ContactUs_PO();

@@ -7,7 +7,7 @@
     "test": "test/specs"
   },
   "scripts": {
-    "test": "wdio",
+    "test": "",
     "allure-reports": "allure generate ./Reports/allure-results && allure report open",
     "pretest": "rimraf ./Reports/allure-results && rimraf ./Reports/allure-results && rimraf test-screenshots && rimraf wdio-logs"
   },

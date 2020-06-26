@@ -1,4 +1,4 @@
-var config = require('../config/config');
+var config = require('../config/DB_config');
 var mysql = require('mysql');
 var connection = mysql.createConnection(config.databaseOptions);
 

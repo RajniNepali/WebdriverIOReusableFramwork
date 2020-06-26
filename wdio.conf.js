@@ -1,5 +1,6 @@
 
 let WdioTestRailReporter = require('./node_modules/wdio-testrail-reporter/lib/wdio-testrail-reporter')
+
 const video = require('wdio-video-reporter');  // added for allure video reports
 //const reporter = require('wdio-allure-reporter')
 
@@ -149,20 +150,18 @@ exports.config = {
     // Only passed or failed tests will be published. Skipped or pending tests will not be published resulting in a "Pending" status in testrail test run.
 
 //Add reporter to wdio.conf.js:
-   // reporters: ['spec', WdioTestRailReporter],
-    reporters: ['spec'],
-    // testRailsOptions: {
-    //   domain: "webdriverio.testrail.io",
-    //   username: "rajni.nepali@nitorinfotech.com",
-    //   password: "0xUc0GzpV1YLyGxjx/dQ-eQNnZ8r2wsV6NvVEbC4l",
-    //   projectId: 1,
-    //   suiteId: 1,
-    //   runName: "TestRun1"
-    // },   
+   reporters: ['spec', WdioTestRailReporter],
+    testRailsOptions: {
+     domain: "webdriverio.testrail.io",
+      username: "rajni.nepali@nitorinfotech.com",
+      password: "0xUc0GzpV1YLyGxjx/dQ-eQNnZ8r2wsV6NvVEbC4l",
+      projectId: 1,
+      suiteId: 1,
+      runName: "TestRun1"
+    },   
 
     // //sayali's reports 
     // reporters: [
-   
     //     [video, {	
     //         saveAllVideos: false,       // If true, also saves videos for successful test cases	
     //         videoSlowdownMultiplier: 3, // Higher to get slower videos, lower for faster videos [Value 1-100]	
@@ -193,7 +192,7 @@ exports.config = {
     
     //   ],
     // //
-    // Options to be passed to Mocha.
+    // // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/   
     mochaOpts: {
         ui: 'bdd',

@@ -194,3 +194,25 @@ Database used : mysql Dependency added : "mysql": "^2.18.1"
 Command : npm install mysql
 Database credentisls stored in config.js file in order to keep credentials secured.
 Database Connection configuration is kept in the file config.js
+
+-------------------------------------------------------------------------
+### Multi-Environment :
+
+To maintain different environment,
+- Add all environment in config file
+- Create a const in wdio.config.js file
+- Update expected environment in 'baseURL'wdio.config.js file
+
+### Headless Browser :
+To improve the performance, we can execute test cases in Headless Browser
+- Add below code under 'brwoserName' configuration in wdio.config.js file
+- Chrome
+'goog:chromeOptions': {
+args: ['headless', 'disable-gpu'],
+
+},
+- Firefox
+
+"moz:firefoxOptions":{
+"args":['-headless']
+},

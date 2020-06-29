@@ -1,5 +1,6 @@
 
 let WdioTestRailReporter = require('./node_modules/wdio-testrail-reporter/lib/wdio-testrail-reporter')
+let config_db = require("./config/DB_config");
 
 const video = require('wdio-video-reporter');  // added for allure video reports
 //const reporter = require('wdio-allure-reporter')
@@ -60,21 +61,23 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'chrome','goog:chromeOptions': {
-            args: ['headless', 'disable-gpu'],
-            }},
+        browserName: 'chrome',
+        //'goog:chromeOptions': {
+           // args: ['headless', 'disable-gpu'],
+            //}
+        },
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
          //firefox Browser	
-         {	
-            maxInstances: 1,	
-           browserName: 'firefox',"moz:firefoxOptions":{
-            "args":['-headless']
-            },	
-           },	
-        // internet explorer Browser	
+        //  {	
+        //     maxInstances: 1,	
+        //    browserName: 'firefox',"moz:firefoxOptions":{
+        //     "args":['-headless']
+        //     },	
+        //    },	
+        // // internet explorer Browser	
           //  {	
           //   maxInstances: 1,	
           //  browserName: 'internet explorer',	
@@ -112,7 +115,9 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://www.webdriveruniversity.com/',
+    //baseUrl: 'http://www.webdriveruniversity.com/',
+    baseUrl: config_db.databaseOptions.demo,
+    
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

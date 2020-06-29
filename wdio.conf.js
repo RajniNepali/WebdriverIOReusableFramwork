@@ -159,15 +159,17 @@ exports.config = {
     // Only passed or failed tests will be published. Skipped or pending tests will not be published resulting in a "Pending" status in testrail test run.
 
 //Add reporter to wdio.conf.js:
-   reporters: ['spec', WdioTestRailReporter],
-    testRailsOptions: {
-     domain: "webdriverio.testrail.io",
-      username: "rajni.nepali@nitorinfotech.com",
-      password: "0xUc0GzpV1YLyGxjx/dQ-eQNnZ8r2wsV6NvVEbC4l",
-      projectId: 1,
-      suiteId: 1,
-      runName: "TestRun1"
-    },   
+  // reporters: ['spec', WdioTestRailReporter],
+   reporters: ['spec'],
+
+//    testRailsOptions: {
+//      domain: "webdriverio.testrail.io",
+//       username: "rajni.nepali@nitorinfotech.com",
+//       password: "0xUc0GzpV1YLyGxjx/dQ-eQNnZ8r2wsV6NvVEbC4l",
+//       projectId: 1,
+//       suiteId: 1,
+//       runName: "TestRun1"
+//     },   
 
     // //sayali's reports 
     // reporters: [

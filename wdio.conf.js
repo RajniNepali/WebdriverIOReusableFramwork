@@ -1,6 +1,6 @@
 
 let WdioTestRailReporter = require('./node_modules/wdio-testrail-reporter/lib/wdio-testrail-reporter')
-let config_db = require("./config/DB_config");
+let config_db = require("./ConfKeys/DB_config");
 
 const video = require('wdio-video-reporter');  // added for allure video reports
 //const reporter = require('wdio-allure-reporter')
@@ -159,8 +159,8 @@ exports.config = {
     // Only passed or failed tests will be published. Skipped or pending tests will not be published resulting in a "Pending" status in testrail test run.
 
 //Add reporter to wdio.conf.js:
-  // reporters: ['spec', WdioTestRailReporter],
-   reporters: ['spec'],
+   reporters: ['spec', WdioTestRailReporter],
+  // reporters: ['spec'],
 
 //    testRailsOptions: {
 //      domain: "webdriverio.testrail.io",

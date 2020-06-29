@@ -1,4 +1,4 @@
-var config = require('../config/DB_config');
+var config = require('../ConfKeys/DB_config');
 var mysql = require('mysql');
 //var config = require('../Reports/allure-results');
 

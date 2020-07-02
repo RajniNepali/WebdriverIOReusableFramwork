@@ -26,8 +26,12 @@ $ npx wdio config -y
 
 3. Start the Testrunner
 Now, time to run your tests!
+Update the Package.json file as 
+"scripts": {
+    "test": "wdio"
+}
 To do so, just run:
-$ npx wdio wdio.conf.js
+$ npm test
 
 ### Webdriverio -SeleniumStandalone plugin 
 

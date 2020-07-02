@@ -1,6 +1,6 @@
 import ContactUs_PO from '../../PageObjects/page.ContactUsPage';
-import DataReader from "../../Wrappers/dataReader"
-import BaseMethods from '../../Wrappers/BaseMethods';
+import DataReader from "../../Wrappers/dataReaderPage"
+import BaseMethods from '../../Wrappers/baseMethodPage';
 let given = require("mocha-testdata").given;
 let fetchedData = DataReader.processExcel("MyspreadsheetV1.xlsx");
 const data = fetchedData.map(el => Object.values(el));

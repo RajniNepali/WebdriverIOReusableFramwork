@@ -328,6 +328,7 @@ SelectDropDownOptionByAttribute(locator, attribute, value)
                         timer++;
                         isEnabled = browser.isElementEnabled(locator);
                     }
+                    console.log("Test");
                     browser.waitUntil(browser.isElementDisplayed(locator));
                     var radioControls = browser.findElement(locator);
                     var labelControlText = radioControls.getElementText();

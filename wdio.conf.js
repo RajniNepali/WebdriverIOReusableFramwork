@@ -1,4 +1,3 @@
-
 let WdioTestRailReporter = require('./node_modules/wdio-testrail-reporter/lib/wdio-testrail-reporter')
 let config_db = require("./ConfKeys/DB_config");
 
@@ -26,7 +25,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        './Tests/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -160,16 +159,16 @@ exports.config = {
 
 //Add reporter to wdio.conf.js:
    reporters: ['spec', WdioTestRailReporter],
-  // reporters: ['spec'],
+  //reporters: ['spec'],
 
-//    testRailsOptions: {
-//      domain: "webdriverio.testrail.io",
-//       username: "rajni.nepali@nitorinfotech.com",
-//       password: "0xUc0GzpV1YLyGxjx/dQ-eQNnZ8r2wsV6NvVEbC4l",
-//       projectId: 1,
-//       suiteId: 1,
-//       runName: "TestRun1"
-//     },   
+   testRailsOptions: {
+     domain: "webdriverio.testrail.io",
+      username: "rajni.nepali@nitorinfotech.com",
+      password: "0xUc0GzpV1YLyGxjx/dQ-eQNnZ8r2wsV6NvVEbC4l",
+      projectId: 1,
+      suiteId: 1,
+      runName: "TestRun1"
+    },   
 
     // //sayali's reports 
     // reporters: [

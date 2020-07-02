@@ -1,6 +1,7 @@
 import page from "./page"
 import BasepageMethods from "../Wrappers/BaseMethods"
 import DataReader from "../Wrappers/DataReader"
+import { config } from "../wdio.conf";
 const pagepath = require("./page")
  var SubmitButtonLocator= "//*[@value='SUBMIT']";
 var FirstNameFiledLocator = '#contact_form > input:nth-child(1)';
@@ -10,7 +11,7 @@ var CommentsFiledLocator ='//*[@name="message"]';
 class ContactUs_PO extends page{ 
 
     open() {
-        super.open("http://www.webdriveruniversity.com/Contact-Us/contactus.html");
+        super.open(config.baseUrl);
         
     }
     constructor(driver) {
@@ -19,6 +20,7 @@ class ContactUs_PO extends page{
         }
     firstName(value) {
         BasepageMethods.SetValue(FirstNameFiledLocator,value);
+        console.log(FirstNameFiledLocator,value);
     }
     
     lastName(value){
@@ -34,6 +36,7 @@ class ContactUs_PO extends page{
     }
 
     formFillUp(first_name,last_name,email_add,comments){
+        console.log('Inside the Page contact');
         this.firstName(first_name);
         this.lastName(last_name);
         this.emailAddress(email_add);
@@ -45,6 +48,10 @@ class ContactUs_PO extends page{
     submit() {
        // this.submitButton.click();
         BasepageMethods.clickElement (SubmitButtonLocator);   
+    }
+
+    verifySubmitisPresent(){
+        BasepageMethods.Web_VerifyObjectIsDisplayed(SubmitButtonLocator);
     }
 
 }

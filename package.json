@@ -4,7 +4,7 @@
   "description": "This is a webdriverio javascript based automation testing framework designed strcuture for resuability",
   "main": "index.js",
   "directories": {
-    "test": "test/specs"
+    "test": "Tests/specs"
   },
   "scripts": {
     "test": "wdio",

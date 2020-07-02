@@ -1,6 +1,6 @@
 //This file is to be executed with Node . command to get the Google sheet Data
 var {google} =require('googleapis');
-const Keys = require('./Keys.json');
+const Keys = require('./keysPage.json');
 
 const client = new google.auth.JWT(
 Keys.client_email,

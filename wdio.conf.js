@@ -1,5 +1,5 @@
 let WdioTestRailReporter = require('./node_modules/wdio-testrail-reporter/lib/wdio-testrail-reporter')
-let config_db = require("./ConfKeys/DB_config");
+let config_db = require("./ConfKeys/dbConfig");
 
 const video = require('wdio-video-reporter');  // added for allure video reports
 //const reporter = require('wdio-allure-reporter')

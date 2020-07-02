@@ -2,7 +2,7 @@
 // //import ContactUs_PO from 'C:\Users\sayali\Downloads\WebdriverIo\WebdriverResuableComponents-06-11-2020\WebdriverResuableComponents\page-objects\ContactUs_PO.js'
 
 // //import ContactUs_PO from '.../ContactUs_PO'
-// import ContactUs_PO from '../../page-objects/page.ContactUs_PO';
+ //import ContactUs_PO from '../../pageObjects/page.ContactUs_PO';
 
 // //const pagepath = require("../page-objects/")
 

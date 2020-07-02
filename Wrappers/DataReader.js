@@ -5,7 +5,7 @@ processExcel(fileName) {
     //Read the Excel File data.
     const XLSX = require('xlsx');
     
-    const workbook = XLSX.readFile('TestData\\Myspreadsheet_v1.xlsx');
+    const workbook = XLSX.readFile('TestData\\MyspreadsheetV1.xlsx');
     
     //Fetch the name of First Sheet.
     const firstSheet = workbook.SheetNames[0];

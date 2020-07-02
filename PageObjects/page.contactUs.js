@@ -1,6 +1,6 @@
 import page from "./page"
-import BasepageMethods from "../Wrappers/BaseMethods"
-import DataReader from "../Wrappers/DataReader"
+import BasepageMethods from "../Wrappers/baseMethodPage"
+import DataReader from "../Wrappers/dataReaderPage"
 import { config } from "../wdio.conf";
 const pagepath = require("./page")
  var SubmitButtonLocator= "//*[@value='SUBMIT']";

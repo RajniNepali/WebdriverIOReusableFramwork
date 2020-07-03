@@ -254,7 +254,7 @@ class BaseMethodsPage
          Return value: Null  
     ===============================================================================*/
         
-SelectDropDownOptionByAttribute(locator, attribute, value)
+   SelectDropDownOptionByAttribute(locator, attribute, value)
     {  
         try{
             var elementExists = browser.isElementDisplayed(locator);
@@ -346,15 +346,15 @@ SelectDropDownOptionByAttribute(locator, attribute, value)
          Author: Sayali Bankar
          Updated By:  
          Creation Date: 06/12/2020
-         Input Parameters: strObjName
+         Input Parameters: locator
          Return value: True if sucessful else false   
          ===============================================================================*/
 
-         Web_VerifyObjectIsDisplayed(strObjName)
+         VerifyObjectIsDisplayed(locator)
          {
              try
              {
-                 var blstatus = $(strObjName).isDisplayed()
+                 var blstatus = $(locator).isDisplayed()
                  if (blstatus.Equals(true))
                  {
                      console.log("Object Is Displayed" + blstatus); 
@@ -377,15 +377,15 @@ SelectDropDownOptionByAttribute(locator, attribute, value)
          Author: Sayali Bankar
          Updated By:  
          Creation Date: 06/12/2020
-         Input Parameters: strObjName
+         Input Parameters: locator
          Return value: True if sucessful else false   
          ===============================================================================*/
 
-         Web_VerifyObjectIsDisplayedInViewport(strObjName)
+         VerifyObjectIsDisplayedInViewport(locator)
          {
              try
              {
-                 var blstatus = $(strObjName).isDisplayedInViewport()
+                 var blstatus = $(locator).isDisplayedInViewport()
                  if (blstatus.Equals(true))
                  {
                     console.log("Object Is Displayed In ViewportClickable" + blstatus);
@@ -409,15 +409,15 @@ SelectDropDownOptionByAttribute(locator, attribute, value)
          Author: Sayali Bankar
          Updated By:  
          Creation Date: 06/12/2020
-         Input Parameters: strObjName
+         Input Parameters: locator
          Return value: True if sucessful else false   
          ===============================================================================*/
 
-         Web_VerifyObjectIsEnabled(strObjName)
+         VerifyObjectIsEnabled(locator)
          {
              try
              {
-                 var blstatus = $(strObjName).isEnabled()
+                 var blstatus = $(locator).isEnabled()
                  if (blstatus.Equals(true))
                  {
                     console.log("Object Is Displayed In ViewportClickable" + blstatus);
@@ -440,7 +440,7 @@ SelectDropDownOptionByAttribute(locator, attribute, value)
          Return value: Returns string url 
          ===============================================================================*/
 
-         Web_getUrl(strObjName)
+         getUrl()
          {
              try
              {
@@ -460,16 +460,16 @@ SelectDropDownOptionByAttribute(locator, attribute, value)
          Author: Sayali Bankar
          Updated By:  
          Creation Date: 06/12/2020
-         Input Parameters: strObjName
+         Input Parameters: locator
          Return value: return string element text  
 
          ===============================================================================*/
 
-         Web_GetElementText(strObjName)
+         GetElementText(locator)
          {
              try
              {
-                var elementText = browser.getElementText(strObjName)
+                var elementText = browser.getElementText(locator)
                 console.log("Element Text is" + blstatus);
             }
              catch (error)
@@ -484,11 +484,10 @@ SelectDropDownOptionByAttribute(locator, attribute, value)
          Author: Sayali Bankar
          Updated By:  
          Creation Date: 06/12/2020
-         Input Parameters: strObjName
          Return value: return string element text  
          ===============================================================================*/
 
-         Web_GetAlertText(strObjName)
+         GetAlertText()
          {
              try
              {
@@ -507,8 +506,8 @@ SelectDropDownOptionByAttribute(locator, attribute, value)
          Author: Sayali Bankar
          Updated By:  
          Creation Date: 06/12/2020
-         Input Parameters: strObjName
-         Return value: return string element text  
+         Input Parameters: minimum number & Maximum number
+         Return value: returns random number between given range 
          ===============================================================================*/
 
          getRandomNumber(minNumber, maxNumber)

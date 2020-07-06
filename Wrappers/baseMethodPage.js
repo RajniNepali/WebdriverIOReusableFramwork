@@ -455,30 +455,7 @@ class BaseMethodsPage
  
          }
 
-    /*===============================================================================                                        
-         Purpose: This function is used to get element text
-         Author: Sayali Bankar
-         Updated By:  
-         Creation Date: 06/12/2020
-         Input Parameters: locator
-         Return value: return string element text  
-
-         ===============================================================================*/
-
-         GetElementText(locator)
-         {
-             try
-             {
-                var elementText = browser.getElementText(locator)
-                console.log("Element Text is" + blstatus);
-            }
-             catch (error)
-             {
-                console.log("Failed to get element Text" + error.message);
-             }
-         }
-
-     /*===============================================================================
+         /*===============================================================================
                                           
          Purpose: This function is used to get element text
          Author: Sayali Bankar

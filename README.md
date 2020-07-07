@@ -131,53 +131,6 @@ For More reference :https://www.npmjs.com/package/wdio-testrail-reporter
 
 For generating reports use following command.
 
-npm run-script pretest ; npm run test ; npm run allure-reports
-
-In package.json file , Scripts are added for all commands mentioned above.
-
-pretest: All the previous reports will get cleared from project suite. test: Added tests for execution. allure-reports: It will execute generate Reports & Open reports.
-
-Below dependencies added for reports ; 
-1."allure-commandline": "^1.4.22-1" 
-2."wdio-video-reporter": "^3.0.0", 
-3."@wdio/allure-reporter": "^6.1.14", 
-4."@wdio/firefox-profile-service": "^6.1.14", 
-5."@wdio/junit-reporter": "^6.1.14"
-
-For clearing previuos generated resports "pretest" is added inside package.json file 
-Allure reports generation command is stored in "allure-reports" inside package.json file 
-
-Execution Command: npm run-script pretest ; npm run test ; npm run allure-reports
-
-If needed all commands can be clubbed and executed in the above given format, it will clear reports run tests and finally generate and open new allure reports.
-
-----------------------------------
-
-### MultiBrowser Execution:
-
-Execution can be done on Multiple browsers in parallel. Following Browsers are added for multibrowser testing in the suite.
-
-Chrome Browsers
-Internet Browsers
-Mozilla firefox Browsers
-We can also define maximum number of Instances of browser using variable maxInstances in wdio.conf.js file
-
-Below dependencies added for MultiBrowser execution ;
-
-@babel/register": "^7.10.1",
-
-1."@wdio/firefox-profile-service": "^6.1.14",
-2."@wdio/selenium-standalone-service": "^6.1.14",
-3."chromedriver": "^83.0.0", 
-4."selenium-standalone": "^6.17.0", 
-5."wdio-chromedriver-service": "^6.0.3"
-
-----------------------------------
-
-### Reports Generation:
-
-For generating reports use following command.
-
 Reporting options added : Spec reports, Junit reports, Json reports, Allure reports
 
 1. Spec reports can be directly seen on execution terminal.
@@ -188,7 +141,7 @@ npm run-script pretest ; npm run test ; npm run allure-reports
 
 In package.json file , Scripts are added for all commands mentioned above.
 
-pretest: All the previous reports will get cleared from project suite. 
+pretest: All the previous reports will get cleared from project suite.
 test: Added tests for execution.
 allure-reports: It will execute generate Reports & Open reports.
 (this command generates a report in temporary folder from the data found in the provided path and then creates a local server instance, serves generated report and opens it in the default browser.)

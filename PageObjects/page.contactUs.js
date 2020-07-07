@@ -2,6 +2,7 @@ import page from "./page"
 import BasepageMethods from "../Wrappers/baseMethodPage"
 import DataReader from "../Wrappers/dataReaderPage"
 import { config } from "../wdio.conf";
+
 const pagepath = require("./page")
  var SubmitButtonLocator= "//*[@value='SUBMIT']";
 var FirstNameFiledLocator = '#contact_form > input:nth-child(1)';

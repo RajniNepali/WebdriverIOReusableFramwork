@@ -2,7 +2,7 @@ let WdioTestRailReporter = require('./node_modules/wdio-testrail-reporter/lib/wd
 let config_db = require("./ConfKeys/dbConfig");
 
 const video = require('wdio-video-reporter');  // added for allure video reports
-//const reporter = require('wdio-allure-reporter')
+const fs = require('fs-extra')  // For folder copy paste purpose
 
 exports.config = {
     //
@@ -187,18 +187,17 @@ exports.config = {
         }],	
     
         // spec reports 
-        ['spec', {	
-            outputDir: './Reports/spec-results',	
-          }],
+        ['spec', {  }],
+
         //json reports	
         ['json', {	
            outputDir: './Reports/json-results',	
          }],	
+
         //junit reports	
          ['junit', {	
           outputDir: './Reports/junit-results',	
         }],	
-        //Test rail
     
       ],
     // //
@@ -332,8 +331,14 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    // onComplete: function(exitCode, config, capabilities, results) {
-    // },
+
+     // After completion of execution following block will be executed where backup reports code is added
+    onComplete: function(exitCode, config, capabilities, results) {
+      var d = new Date();
+      var now = "webdriverioReports" + "-" + d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + "-" + d.getHours() + "." + d.getMinutes() + "." + d.getSeconds();
+      fs.copy("./Reports/","./BackupReports/" + now );
+        
+  },
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session

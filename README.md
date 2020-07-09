@@ -151,6 +151,7 @@ Below dependencies are added for reports ;
 2. "wdio-video-reporter": "^3.0.0",    -npm install wdio-video-reporter
 3. "@wdio/allure-reporter": "^6.1.14", -npm install @wdio/allure-reporter --save-dev
 4. "@wdio/junit-reporter": "^6.1.14"   -npm install @wdio/junit-reporter --save-dev
+5. "fs-extra": "^9.0.1"                -npm install fs-extra
 
 Function to take screenshot is added inside afterTest block in wdio.config.js file.
 For clearing previuos generated resports "pretest" is added inside package.json file 
@@ -159,6 +160,9 @@ Allure reports generation command is stored in "allure-reports" inside package.j
 Execution Command: npm run-script pretest ; npm run test ; npm run allure-reports
 
 If needed all commands can be clubbed and executed in the above given format, it will clear reports run tests and finally generate and open new allure reports.
+
+Backup Reports: 
+Old reports are stored in BackupReports folder in suite.Once execution gets completed, onComplete block from AfterHooks will get executed & all the reports generated for that test execution will be stored in folder named webdriverioReports-Systemdate-SystemTime.
 
 For More reference: https://webdriver.io/docs/allure-reporter.html
 

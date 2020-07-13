@@ -61,26 +61,29 @@ exports.config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
-        //'goog:chromeOptions': {
-           // args: ['headless', 'disable-gpu'],
-            //}
+        'goog:chromeOptions': {
+           args: ['headless', 'disable-gpu'],
+            }
         },
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
          //firefox Browser	
-        //  {	
-        //     maxInstances: 1,	
-        //    browserName: 'firefox',"moz:firefoxOptions":{
-        //     "args":['-headless']
-        //     },	
-        //    },	
-        // // internet explorer Browser	
+         {	
+            maxInstances: 1,	
+           browserName: 'firefox',
+           "moz:firefoxOptions":{
+            "args":['-headless']
+            },	
+           },	
+         // internet explorer Browser	
           //  {	
           //   maxInstances: 1,	
-          //  browserName: 'internet explorer',	
+          //  browserName: 'internet explorer',
           //  },	
+           /* IE does not have support for a headless mode 
+           (since IE nowadays does not recieve any kind of update or improvements.). */
   
     ],
     //

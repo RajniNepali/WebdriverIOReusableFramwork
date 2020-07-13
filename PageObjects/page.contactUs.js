@@ -2,59 +2,50 @@ import page from "./page"
 import BasepageMethods from "../Wrappers/baseMethodPage"
 import DataReader from "../Wrappers/dataReaderPage"
 import { config } from "../wdio.conf";
+import baseMethodPage from "../Wrappers/baseMethodPage";
 
 const pagepath = require("./page")
- var SubmitButtonLocator= "//*[@value='SUBMIT']";
-var FirstNameFiledLocator = '#contact_form > input:nth-child(1)';
-var LastNameFiledLocator = '//*[@name="last_name"]';
-var emailAddressFieldLocator = '//*[@name="email"]';
-var CommentsFiledLocator ='//*[@name="message"]';
+
 class ContactUs_PO extends page{ 
 
     open() {
-        super.open(config.baseUrl);
-        
+        super.open(config.baseUrl);    
     }
-    constructor(driver) {
-        super();
-        this.driver = driver;
-        }
-    firstName(value) {
-        BasepageMethods.SetValue(FirstNameFiledLocator,value);
-        console.log(FirstNameFiledLocator,value);
+
+    submitcontactUsForm() {
+        BasepageMethods.clickElement(this.submitButton);
+      }
+  
+    formFillUp(first_name,last_name,email_add,comments){
+    console.log('Inside the Page contact');
+    this.firstName.setValue(first_name);
+    this.lastName.setValue(last_name);
+    this.emailAddress.setValue(email_add);
+    this.comments.setValue(comments);
+    this.submitcontactUsForm();
+    }  
+
+    //  ContactUsForm ObjectRepository
+
+    get firstName() {
+     return $('//*[@name="first_name"]');
     }
     
-    lastName(value){
-        BasepageMethods.SetValue(LastNameFiledLocator,value);
+    get lastName() {
+     return $('//*[@name="last_name"]');
     }
-
-    emailAddress(value) {
-        BasepageMethods.SetValue(emailAddressFieldLocator,value);
+    
+   get emailAddress() {
+     return $('//*[@name="email"]');
+   }
+    
+    get comments() {
+     return $('//*[@name="message"]');
     }
-
-    comments(value) {
-        BasepageMethods.SetValue(CommentsFiledLocator,value);
+    
+    get submitButton() {
+     return $('//*[@value="SUBMIT"]');
     }
-
-    formFillUp(first_name,last_name,email_add,comments){
-        console.log('Inside the Page contact');
-        this.firstName(first_name);
-        this.lastName(last_name);
-        this.emailAddress(email_add);
-        this.comments(comments);
-        this.submit();
-        
-    }
-
-    submit() {
-       // this.submitButton.click();
-        BasepageMethods.clickElement (SubmitButtonLocator);   
-    }
-
-    verifySubmitisPresent(){
-        BasepageMethods.Web_VerifyObjectIsDisplayed(SubmitButtonLocator);
-    }
-
+    
 }
 export default new ContactUs_PO()
-//module.exports = new ContactUs_PO();

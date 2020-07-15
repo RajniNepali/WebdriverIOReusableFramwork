@@ -14,7 +14,7 @@ describe("Test contact us page on webdriveruniversity", () => {
    
     it('should have the right title', async () => {
       ContactUs_PO.open();
-      await expect(browser).toHaveTitle('WebDriver | Contact Us');
+      await expect(browser).toHaveTitle('WebDriver1 | Contact Us');
   });
 
  });

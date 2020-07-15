@@ -71,8 +71,8 @@ exports.config = {
         // excludeDriverLogs: ['bugreport', 'server'],
          //firefox Browser	
          {	
-            maxInstances: 1,	
-           browserName: 'firefox',
+          maxInstances: 1,	
+          browserName: 'firefox',
            "moz:firefoxOptions":{
             "args":['-headless']
             },	
@@ -173,7 +173,7 @@ exports.config = {
 //       runName: "TestRun1"
 //     },   
 
-    // //sayali's reports 
+    // reports 
     reporters: [
         [video, {	
             saveAllVideos: false,       // If true, also saves videos for successful test cases	
@@ -181,6 +181,9 @@ exports.config = {
             videoRenderTimeout: 5, 	
             outputDir: './Reports/videos',	
         }],	
+      // ['browserstack',{
+      //   outputDir: './Reports/browserstack-reports',
+      //   }],
     
           // Allure reports	
         ['allure', {	
@@ -200,6 +203,17 @@ exports.config = {
         //junit reports	
          ['junit', {	
           outputDir: './Reports/junit-results',	
+        
+          outputFileFormat: function(options) { 
+            return `results-${options.cid}.-junit-reporter.xml`
+        }
+
+
+
+          //function(opts){return `wdio-${this.cid}-${name}-reporter.log`}
+        //   outputFileFormat: function(options) { 
+        //     return `wdio-${this.cid}-reporter.xml`
+        // }
         }],	
     
       ],

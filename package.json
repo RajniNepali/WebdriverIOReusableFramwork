@@ -9,7 +9,7 @@
   "scripts": {
     "test": "wdio",
     "allure-reports": "allure generate ./Reports/allure-results && allure report open",
-    "pretest": "rimraf ./Reports/allure-results && rimraf ./Reports/allure-results && rimraf test-screenshots && rimraf wdio-logs"
+    "pretest": "rimraf ./Reports && rimraf wdio-logs && rimraf ./allure-report/data"
   },
   "repository": {
     "type": "git",
@@ -26,10 +26,14 @@
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@babel/register": "^7.10.1",
+    "@wdio/allure-reporter": "^6.1.14",
     "@wdio/cli": "^6.1.17",
+    "@wdio/firefox-profile-service": "^6.1.14",
+    "@wdio/junit-reporter": "^6.1.14",
     "@wdio/local-runner": "^6.1.17",
     "@wdio/mocha-framework": "^6.1.17",
     "@wdio/selenium-standalone-service": "^6.1.14",
+    "@wdio/shared-store-service": "^6.1.4",
     "@wdio/spec-reporter": "^6.1.14",
     "@wdio/sync": "^6.1.14",
     "chromedriver": "^83.0.0",
@@ -37,13 +41,9 @@
     "mocha-testrail-reporter": "^1.0.12",
     "selenium-standalone": "^6.17.0",
     "wdio-chromedriver-service": "^6.0.3",
-    "webdriver": "^6.1.17",
-    "@wdio/allure-reporter": "^6.1.14",
-    "@wdio/firefox-profile-service": "^6.1.14",
-    "@wdio/junit-reporter": "^6.1.14",
     "wdio-json-reporter": "^2.0.0",
     "wdio-testrail-reporter": "^1.1.5",
-    "@wdio/shared-store-service": "^6.1.4",
+    "webdriver": "^6.1.17",
     "webdriverio": "^6.1.20"
   },
   "dependencies": {

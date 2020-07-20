@@ -70,13 +70,13 @@ exports.config = {
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
          //firefox Browser	
-         {	
-          maxInstances: 1,	
-          browserName: 'firefox',
-           "moz:firefoxOptions":{
-            "args":['-headless']
-            },	
-           },	
+        //  {	
+        //   maxInstances: 1,	
+        //   browserName: 'firefox',
+        //    "moz:firefoxOptions":{
+        //     "args":['-headless']
+        //     },	
+        //    },	
          // internet explorer Browser	
           //  {	
           //   maxInstances: 1,	
@@ -181,17 +181,12 @@ exports.config = {
             videoRenderTimeout: 5, 	
             outputDir: './Reports/videos',	
         }],	
-      // ['browserstack',{
-      //   outputDir: './Reports/browserstack-reports',
-      //   }],
-    
-          // Allure reports	
+        // Allure reports	
         ['allure', {	
            outputDir: './Reports/allure-results',	
           disableWebdriverStepsReporting: true,	
           disableWebdriverScreenshotsReporting: false,	
-        }],	
-    
+        }],	   
         // spec reports 
         ['spec', {  }],
 
@@ -202,22 +197,13 @@ exports.config = {
 
         //junit reports	
          ['junit', {	
-          outputDir: './Reports/junit-results',	
-        
+          outputDir: './Reports/junit-results',	   
           outputFileFormat: function(options) { 
             return `results-${options.cid}.-junit-reporter.xml`
         }
-
-
-
-          //function(opts){return `wdio-${this.cid}-${name}-reporter.log`}
-        //   outputFileFormat: function(options) { 
-        //     return `wdio-${this.cid}-reporter.xml`
-        // }
         }],	
-    
+  
       ],
-    // //
     // // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/   
     mochaOpts: {
@@ -225,7 +211,6 @@ exports.config = {
         timeout: 60000,
         compilers: ['js:@babel/register']
     },
-
     //
     // =====
     // Hooks
@@ -305,8 +290,7 @@ exports.config = {
       afterTest: function(test, context, { error, result, duration, passed, retries }) {	
         if (error !== undefined) {	
             browser.takeScreenshot();	
-          }	
-        
+          }	      
     },
     /**
      * Hook that gets executed after the suite has ended
@@ -353,8 +337,7 @@ exports.config = {
     onComplete: function(exitCode, config, capabilities, results) {
       var d = new Date();
       var now = "webdriverioReports" + "-" + d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + "-" + d.getHours() + "." + d.getMinutes() + "." + d.getSeconds();
-      fs.copy("./Reports/","./BackupReports/" + now );
-        
+      fs.copy("./Reports/","./BackupReports/" + now );       
   },
     /**
     * Gets executed when a refresh happens.

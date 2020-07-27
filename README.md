@@ -3,6 +3,7 @@ This is a Webdriverio Javascript based framework, can be used as a basic structu
 
 This repository contains a collection of sample webdriverIO (v5x) projects and libraries that demonstrate how to use the tool and develop automation script using the Mocha framework. It support ES6 (via babel-register) and provides utilities to read data from MS-Excel, executes SQL statements to any database(RDBMS such as Oracle, TeraData, MySQL, Vertica) for end to end testing. It generate Spec, Allure reporters as well.
 
+----------------------------------
 ### Installation
 This project is tested on **Node v8.10.0**.  While earlier versions of node may be compatible, they have not been tested or verified.
 
@@ -12,6 +13,7 @@ This project is tested on **Node v8.10.0**.  While earlier versions of node may 
 
 Now navigate to the framework's package.json folder and run `npm install` to grab all dependencies.
 
+----------------------------------
 ### WebDriver IO Installation
 Install WebdriverIO CLI
 If you want to use WebdriverIO in your project for integration testing, we recommend using the test runner. It comes with lots of useful features that makes your life easier.
@@ -33,6 +35,7 @@ Update the Package.json file as
 To do so, just run:
 $ npm test
 
+----------------------------------
 ### Webdriverio -SeleniumStandalone plugin 
 
   To run your test you must have selenium  server up and running to execute any webdriverIO tests, or it will fail fast with an error. To start selenium automatically it has been added as part of `services: ['selenium-standalone']` in the .conf.js.  That's all there is to it.
@@ -48,13 +51,14 @@ $ npm test
         step 2. selenium-standalone install
         step 3. selenium-standalone start
 
+----------------------------------
 ### Babel
 - Install Babel 
 - Babel is a javascript compiler
 Command :-npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
 Create - babel.config.js file in project 
 Add following code into babel.config.js file :-
----------------------------------------
+----------------------------------
 module.exports = {
     presets: [
         ['@babel/preset-env', {
@@ -64,7 +68,7 @@ module.exports = {
         }]
     ]
 }
-----------------------------------------
+----------------------------------
 Wdio.config changes -
 
  mochaOpts: {
@@ -74,17 +78,17 @@ Wdio.config changes -
     },
 	
 ----------------------------------
-
 ### Chai Assertion Library
 Install chail - chai is a Assertion library
 - npm i --save chai@latest -save -dev
 
+----------------------------------
 ### Chrome Driver SetUp
 Install and setup ChromeDeiver :
 - npm install wdio-chromedriver-service --save-dev
 - npm install chromedriver --save-dev
 
-
+----------------------------------
 ### Testrail Reporter for Webdriver.io (Test Management Tool Integration)
 Pushes test results into Testrail system. Fork from mocha testrail reporter
 
@@ -126,25 +130,9 @@ Options
 For More reference :https://www.npmjs.com/package/wdio-testrail-reporter
 
 ----------------------------------
-
 ### Reports Generation:
 
-For generating reports use following command.
-
 Reporting options added : Spec reports, Junit reports, Json reports, Allure reports
-
-1. Spec reports can be directly seen on execution terminal.
-2. Json and Junit and Allure reports will be generated under reports folder.
-3. To Open Allure reports Allure Commandline is used, It will copy Allre reports data inside allure-report  folder and open those reports 
-
-npm run-script pretest ; npm run test ; npm run allure-reports
-
-In package.json file , Scripts are added for all commands mentioned above.
-
-pretest: All the previous reports will get cleared from project suite.
-test: Added tests for execution.
-allure-reports: It will execute generate Reports & Open reports.
-(this command generates a report in temporary folder from the data found in the provided path and then creates a local server instance, serves generated report and opens it in the default browser.)
 
 Below dependencies are added for reports ; 
 1. "allure-commandline": "^1.4.22-1",  - npm install -g allure-commandline --save-dev
@@ -153,13 +141,18 @@ Below dependencies are added for reports ;
 4. "@wdio/junit-reporter": "^6.1.14"   -npm install @wdio/junit-reporter --save-dev
 5. "fs-extra": "^9.0.1"                -npm install fs-extra
 
-Function to take screenshot is added inside afterTest block in wdio.config.js file.
-For clearing previuos generated resports "pretest" is added inside package.json file 
-Allure reports generation command is stored in "allure-reports" inside package.json file 
-
 Execution Command: npm run-script pretest ; npm run test ; npm run allure-reports
+In package.json file , Scripts are added for all commands mentioned above.
 
-If needed all commands can be clubbed and executed in the above given format, it will clear reports run tests and finally generate and open new allure reports.
+pretest: All the previous reports will get cleared from project suite.
+test: Added tests for execution.
+allure-reports: It will execute generate Reports & Open reports.
+(this command generates a report in temporary folder from the data found in the provided path and then creates a local server instance, serves generated report and opens it in the default browser.)
+Function to take screenshot is added inside afterTest block in wdio.config.js file.
+
+A typical Allure report will look like this
+![image](https://user-images.githubusercontent.com/62230825/88511632-068c6980-cf9a-11ea-8558-838ebe43847b.png)
+![image](https://user-images.githubusercontent.com/62230825/88513240-c4185c00-cf9c-11ea-8d16-786da6564087.png)
 
 Backup Reports: 
 Old reports are stored in BackupReports folder in suite.Once execution gets completed, onComplete block from AfterHooks will get executed & all the reports generated for that test execution will be stored in folder named webdriverioReports-Systemdate-SystemTime.
@@ -167,7 +160,6 @@ Old reports are stored in BackupReports folder in suite.Once execution gets comp
 For More reference: https://webdriver.io/docs/allure-reporter.html
 
 ----------------------------------
-
 ### MultiBrowser Execution:
 
 Execution can be done on Multiple browsers in parallel. Following Browsers are added for multibrowser testing in the suite.
@@ -186,7 +178,6 @@ Below dependencies added for MultiBrowser execution ;
 5. "wdio-chromedriver-service": "^6.0.3"           -npm install wdio-chromedriver-service --save-dev
 
 ----------------------------------
-
 ### Jenkins Integration:
 
 Configuring Junit Reports to jenkins:
@@ -205,30 +196,12 @@ Add *Junit Reports path*.xml to the "Test report XMLs" field.
 
 4: When we click on the Tests Result link on the left (or on the lower middle part on the Status page).
 
+A typical Junit report will look like this
+![image](https://user-images.githubusercontent.com/62230825/88514319-b5cb3f80-cf9e-11ea-91a8-268c2570566b.png)
+
 for more reference - https://webdriver.io/docs/junit-reporter.html
 
-## Configuring Allure reports with Jenkins:
-
-
-1. In Jenkins Home page Configure-->Manage Jenkins -> add Allure Jenkins Plugin
-2. Now Again Go to Configure-->Global Tool Configuration
-3. Inside Allure Command line, Provide any name, Select install Automatically and select option of our choice in this.
-4. Now Create New Jenkins Job and inside the post-build section select Allure Report and provide the path of allure report.
-For More reference:  https://www.qaautomation.co.in/2018/12/allure-report-integration-with-jenkins.html
-
-5. In Build Section : Execute Windows batch command  - Commands required for test execution are added.
-- Add path of your test suite (in case of local suite)
-- Add command for execution (npm run test))
-
-6. Execute Our Jenkins Job
-7. Now after execution, we would be able to see allure report icon in our Jenkins dashboard and we would be able to view allure report on our Jenkins dashboard.
-8. In the “Build Triggers” section, you can choose how and when the build should be triggered and run.
-
-9. Build when a change is pushed to github : Allows You to trigger Build after every push into github
-10. Build periodically : Allows periodically scheduled tasks.Jenkins build periodically or on a specific date/time. Based on values added.
-
 ----------------------------------
-
 ### Database Integration :
 
 Database used : mysql Dependency added : "mysql": "^2.18.1"
@@ -237,7 +210,7 @@ Database credentisls stored in config.js file in order to keep credentials secur
 Database Connection configuration is kept in the file config.js
 Command to execute : node (filename).js
 
--------------------------------------------------------------------------
+----------------------------------
 ### Multi-Environment :
 
 To maintain different environment,
@@ -245,6 +218,7 @@ To maintain different environment,
 - Create a const in wdio.config.js file
 - Update expected environment in 'baseURL'wdio.config.js file
 
+----------------------------------
 ### Headless Browser :
 To improve the performance, we can execute test cases in Headless Browser
 - Add below code under 'brwoserName' configuration in wdio.config.js file

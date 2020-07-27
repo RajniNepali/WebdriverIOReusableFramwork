@@ -70,13 +70,13 @@ exports.config = {
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
          //firefox Browser	
-        //  {	
-        //   maxInstances: 1,	
-        //   browserName: 'firefox',
-        //    "moz:firefoxOptions":{
-        //     "args":['-headless']
-        //     },	
-        //    },	
+         {	
+          maxInstances: 1,	
+          browserName: 'firefox',
+           "moz:firefoxOptions":{
+           "args":['-headless']
+           },	
+           },	
          // internet explorer Browser	
           //  {	
           //   maxInstances: 1,	
@@ -183,9 +183,9 @@ exports.config = {
         }],	
         // Allure reports	
         ['allure', {	
-           outputDir: './Reports/allure-results',	
-          disableWebdriverStepsReporting: true,	
-          disableWebdriverScreenshotsReporting: false,	
+          outputDir: './Reports/allure-results',	
+         disableWebdriverStepsReporting: true,	
+         disableWebdriverScreenshotsReporting: false,	
         }],	   
         // spec reports 
         ['spec', {  }],
@@ -199,7 +199,7 @@ exports.config = {
          ['junit', {	
           outputDir: './Reports/junit-results',	   
           outputFileFormat: function(options) { 
-            return `results-${options.cid}.-junit-reporter.xml`
+          return `results-${options.cid}.-junit-reporter.xml` // setting results type to XML
         }
         }],	
   
@@ -335,7 +335,6 @@ exports.config = {
 
      // After completion of execution following block will be executed where backup reports code is added
     onComplete: function(exitCode, config, capabilities, results) {
-      var d = new Date();
       var now = "webdriverioReports" + "-" + d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + "-" + d.getHours() + "." + d.getMinutes() + "." + d.getSeconds();
       fs.copy("./Reports/","./BackupReports/" + now );       
   },

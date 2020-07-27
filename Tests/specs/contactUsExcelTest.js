@@ -14,7 +14,7 @@ describe("Test contact us page on webdriveruniversity", () => {
       expect(browser).toHaveTitle('WebDriver | Contact Us');
   });
 
-    given(data).it("C1 Submit all information via the contact us page", 
+    given(data).it("Submit all information via the contact us page", 
     function(FirstName,LastName,Email,Comments)
      {
       ContactUs_PO.open();

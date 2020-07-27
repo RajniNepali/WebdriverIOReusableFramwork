@@ -10,10 +10,9 @@ connection.connect((err) => {
 //module.exports.ReadDatabase = 
   function readDatabase(){
     connection.query('SELECT * FROM contactus', (err,rows) => {
-        if(err) throw err;
-          //console.log('Data received from Db:' +rows);       
-          console.log(rows);
-          result = rows;
+        if(err) throw err; 
+        console.log(rows);
+        result = rows;
       });
    }
        

@@ -1,10 +1,10 @@
-# WebdriverIOReusableFramwork
+# WebdriverIOReusableFramwork:
 This is a Webdriverio Javascript based framework, can be used as a basic structure for any automation testing framework
 
 This repository contains a collection of sample webdriverIO (v5x) projects and libraries that demonstrate how to use the tool and develop automation script using the Mocha framework. It support ES6 (via babel-register) and provides utilities to read data from MS-Excel, executes SQL statements to any database(RDBMS such as Oracle, TeraData, MySQL, Vertica) for end to end testing. It generate Spec, Allure reporters as well.
 
 ----------------------------------
-### Installation
+### Installation:
 This project is tested on **Node v8.10.0**.  While earlier versions of node may be compatible, they have not been tested or verified.
 
 `JDK 1.8:` Install JDK 1.8+ and make sure class path is set properly. JAVA is require to start `Selenium Server` nothing else.
@@ -14,7 +14,7 @@ This project is tested on **Node v8.10.0**.  While earlier versions of node may 
 Now navigate to the framework's package.json folder and run `npm install` to grab all dependencies.
 
 ----------------------------------
-### WebDriver IO Installation
+### WebDriver IO Installation:
 Install WebdriverIO CLI
 If you want to use WebdriverIO in your project for integration testing, we recommend using the test runner. It comes with lots of useful features that makes your life easier.
 Since WebdriverIO version 5, the testrunner is in the @wdio/cli NPM package.
@@ -36,7 +36,7 @@ To do so, just run:
 $ npm test
 
 ----------------------------------
-### Webdriverio -SeleniumStandalone plugin 
+### Webdriverio -SeleniumStandalone plugin:
 
   To run your test you must have selenium  server up and running to execute any webdriverIO tests, or it will fail fast with an error. To start selenium automatically it has been added as part of `services: ['selenium-standalone']` in the .conf.js.  That's all there is to it.
   
@@ -52,7 +52,7 @@ $ npm test
         step 3. selenium-standalone start
 
 ----------------------------------
-### Babel
+### Babel:
 - Install Babel 
 - Babel is a javascript compiler
 Command :-npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/register
@@ -78,18 +78,18 @@ Wdio.config changes -
     },
 	
 ----------------------------------
-### Chai Assertion Library
+### Chai Assertion Library:
 Install chail - chai is a Assertion library
 - npm i --save chai@latest -save -dev
 
 ----------------------------------
-### Chrome Driver SetUp
+### Chrome Driver SetUp:
 Install and setup ChromeDeiver :
 - npm install wdio-chromedriver-service --save-dev
 - npm install chromedriver --save-dev
 
 ----------------------------------
-### Testrail Reporter for Webdriver.io (Test Management Tool Integration)
+### Testrail Reporter for Webdriver.io (Test Management Tool Integration):
 Pushes test results into Testrail system. Fork from mocha testrail reporter
 
 Installation

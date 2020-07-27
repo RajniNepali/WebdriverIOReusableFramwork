@@ -17,7 +17,7 @@ Install WebdriverIO CLI
 If you want to use WebdriverIO in your project for integration testing, we recommend using the test runner. It comes with lots of useful features that makes your life easier.
 Since WebdriverIO version 5, the testrunner is in the @wdio/cli NPM package.
 1. install the CLI:
-                $ npm i --save-dev @wdio/cli
+   $ npm i --save-dev @wdio/cli
 
 2. Generate Configuration File
 Next, you’ll generate a configuration file to store your WebdriverIO settings.
@@ -35,7 +35,7 @@ $ npm test
 
 ### Webdriverio -SeleniumStandalone plugin 
 
-  To run your test you must have selenium  server up and running to execute any webdriverIO tests, or it will fail fast with an error. To start selenium automatically it has been added as part of `services: ['selenium-standalone']` in the .conf.js.  That's all there is to it.!.
+  To run your test you must have selenium  server up and running to execute any webdriverIO tests, or it will fail fast with an error. To start selenium automatically it has been added as part of `services: ['selenium-standalone']` in the .conf.js.  That's all there is to it.
   
  Install WebdriverIo latest version 
 - Verify Node Js in installed on Your machine - node -v
@@ -189,14 +189,32 @@ Below dependencies added for MultiBrowser execution ;
 
 ### Jenkins Integration:
 
-Configuring Allure reports with Jwnkins:
+Configuring Junit Reports to jenkins:
+ 
+1: Install Jenkins JUnit Plugin
+For Jenkins JUnit reporting, we need to install the JUnit Plug-in. For that, goto -> Jenkins Dashboard -> Manage Jenkins -> Manage Plugins -> Available -> Enter "JUnit Plugin" to the Find field -> Install
+
+2: Configure Jenkins to collect and display the JUnit Test Results
+In this step, we will configure Jenkins, so it will display the test results for individual builds as well as trend reporting. For that, navigate to:
+
+Jenkins -> (choose Project) -> Configure -> Post-build Actions -> Publish JUnit test results report
+
+Add *Junit Reports path*.xml to the "Test report XMLs" field.
+
+3: Then trigger a new build by clicking on Project -> Build now.
+
+4: When we click on the Tests Result link on the left (or on the lower middle part on the Status page).
+
+for more reference - https://webdriver.io/docs/junit-reporter.html
+
+## Configuring Allure reports with Jenkins:
 
 
 1. In Jenkins Home page Configure-->Manage Jenkins -> add Allure Jenkins Plugin
 2. Now Again Go to Configure-->Global Tool Configuration
 3. Inside Allure Command line, Provide any name, Select install Automatically and select option of our choice in this.
 4. Now Create New Jenkins Job and inside the post-build section select Allure Report and provide the path of allure report.
-For More reference: https://www.qaautomation.co.in/2018/12/allure-report-integration-with-jenkins.html
+For More reference:  https://www.qaautomation.co.in/2018/12/allure-report-integration-with-jenkins.html
 
 5. In Build Section : Execute Windows batch command  - Commands required for test execution are added.
 - Add path of your test suite (in case of local suite)
@@ -232,9 +250,7 @@ To improve the performance, we can execute test cases in Headless Browser
 - Add below code under 'brwoserName' configuration in wdio.config.js file
 - Chrome
 'goog:chromeOptions': {
-args: ['headless', 'disable-gpu'],
-
-},
+args: ['headless', 'disable-gpu'],},
 - Firefox
 
 "moz:firefoxOptions":{

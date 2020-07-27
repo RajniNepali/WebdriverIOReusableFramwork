@@ -493,7 +493,7 @@ class BaseMethodsPage
             var number = minNumber + (Math.random() * maxNumber);
             return Math.floor(number);
              }
-        catch (error)
+         catch (error)
             {
            console.log("Failed to generate random number" +  error.message);
 

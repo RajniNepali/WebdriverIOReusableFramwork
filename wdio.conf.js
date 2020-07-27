@@ -183,7 +183,7 @@ exports.config = {
         }],	
         // Allure reports	
         ['allure', {	
-          outputDir: './Reports/allure-results',	
+         outputDir: './Reports/allure-results',	
          disableWebdriverStepsReporting: true,	
          disableWebdriverScreenshotsReporting: false,	
         }],	   
@@ -335,7 +335,8 @@ exports.config = {
 
      // After completion of execution following block will be executed where backup reports code is added
     onComplete: function(exitCode, config, capabilities, results) {
-      var now = "webdriverioReports" + "-" + d.getDate()  + "-" + (d.getMonth()+1) + "-" + d.getFullYear() + "-" + d.getHours() + "." + d.getMinutes() + "." + d.getSeconds();
+      var date = new Date();
+      var now = "webdriverioReports" + "-" + date.getDate()  + "-" + (date.getMonth()+1) + "-" + date.getFullYear() + "-" + date.getHours() + "." + date.getMinutes() + "." + date.getSeconds();
       fs.copy("./Reports/","./BackupReports/" + now );       
   },
     /**
